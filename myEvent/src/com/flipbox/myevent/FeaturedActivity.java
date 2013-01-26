@@ -30,6 +30,8 @@ import android.widget.Toast;
 
 public class FeaturedActivity extends Activity {
 
+	final String url = "http://flipboxstudio.com/myEvent/service/getEvent.php";
+
 	JSONObject e;
 	JSONArray e_content;
 	ListView lv;
@@ -38,28 +40,40 @@ public class FeaturedActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.multiview);
-		String url = "http://flipboxstudio.com/myEvent/service/getEvent.php";
+
+		// show progress bar while load the data from url
 		SwitchLayout1();
 		new JSONArrayLoaderTask().execute(url);
-
 	}
 
-	private void SwitchLayout2() {
-		RelativeLayout Layout1 = (RelativeLayout) findViewById(R.id.layout1);
-		RelativeLayout Layout2 = (RelativeLayout) findViewById(R.id.layout2);
-
-		// Enable Layout 2 and Disable Layout 1
-		Layout1.setVisibility(View.GONE);
-		Layout2.setVisibility(View.VISIBLE);
-	}
-
+	/**
+	 * This method will disable/dismiss the listview and show progress bar
+	 * within multivew.xml layout.
+	 */
 	private void SwitchLayout1() {
-		RelativeLayout Layout1 = (RelativeLayout) findViewById(R.id.layout1);
-		RelativeLayout Layout2 = (RelativeLayout) findViewById(R.id.layout2);
+		// progress bar layout
+		RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.loadingRelLayout);
+		// list layout
+		RelativeLayout eventListLayout = (RelativeLayout) findViewById(R.id.listRelLayout);
 
-		// Enable Layout 1 & Disable Layout2
-		Layout1.setVisibility(View.VISIBLE);
-		Layout2.setVisibility(View.GONE);
+		// show progress bar & hide the listview
+		loadingLayout.setVisibility(View.VISIBLE);
+		eventListLayout.setVisibility(View.GONE);
+	}
+
+	/**
+	 * This method will disable/dismiss the progress bar and show listview
+	 * within multivew.xml layout.
+	 */
+	private void SwitchLayout2() {
+		// progress bar layout
+		RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.loadingRelLayout);
+		// list layout
+		RelativeLayout eventListLayout = (RelativeLayout) findViewById(R.id.listRelLayout);
+
+		// hide the progress bar & show the listview
+		loadingLayout.setVisibility(View.GONE);
+		eventListLayout.setVisibility(View.VISIBLE);
 	}
 
 	class JSONArrayLoaderTask extends AsyncTask<String, Void, JSONArray> {
@@ -95,22 +109,23 @@ public class FeaturedActivity extends Activity {
 						map = new HashMap<String, Object>();
 						e = result.getJSONObject(i);
 						e_content = e.names();
-						
+
 						System.out.println("ZZ TITLE : " + e.getString("title")
 								+ ":");
+
 						if (isValid(e)) {
 							for (int j = 0; j < e_content.length(); j++) {
 								map.put(e_content.getString(j),
 										e.getString(e_content.getString(j)));
-								//map.put("image", "http://mydinkydonuts.com/wp-content/uploads/2011/09/big-event.jpg");
-//								new FetchImageTask() {
-//									protected void onPostExecute(Bitmap result) {
-//										if (result != null) {
-//											map.put("image", result);
-//										}
-//									}
-//								}.execute(e.getString("image"));
-
+								// map.put("image",
+								// "http://mydinkydonuts.com/wp-content/uploads/2011/09/big-event.jpg");
+								// new FetchImageTask() {
+								// protected void onPostExecute(Bitmap result) {
+								// if (result != null) {
+								// map.put("image", result);
+								// }
+								// }
+								// }.execute(e.getString("image"));
 							}
 							mylist.add(map);
 						}
@@ -128,7 +143,7 @@ public class FeaturedActivity extends Activity {
 				ListAdapter adapter = new CustomAdapter(getBaseContext(),
 						mylist, R.layout.list_feature_item, from, to);
 
-				lv = (ListView) findViewById(R.id.listview1);
+				lv = (ListView) findViewById(R.id.event_listview);
 				lv.setAdapter(adapter);
 
 				lv.setOnItemClickListener(new OnItemClickListener() {
@@ -137,12 +152,12 @@ public class FeaturedActivity extends Activity {
 						@SuppressWarnings("unchecked")
 						HashMap<String, String> o = (HashMap<String, String>) lv
 								.getItemAtPosition(position);
-						
+
 						Intent in = new Intent(getBaseContext(),
 								DetailFeatureEventActivity.class);
-						
+
 						String[] keys = new String[e_content.length()];
-						
+
 						for (int j = 0; j < e_content.length(); j++) {
 							try {
 								keys[j] = e_content.getString(j);

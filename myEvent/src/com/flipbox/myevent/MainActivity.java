@@ -11,49 +11,46 @@ public class MainActivity extends TabActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		//init database
+
+		// init database
 		Database db = new Database(this, this);
 		Database.createTableIfNotExist();
 
 		final TabHost tabHost = getTabHost();
-		 Resources res = getResources(); 
+		Resources res = getResources();
 		TabHost.TabSpec spec;
 
-		// Create an Intent to launch an Activity for the tab (to be reused)
 		Intent intent;
+		
+		// Create an Intent to launch an Activity for "Featured" tab (to be reused)
 		intent = new Intent().setClass(this, FeaturedActivity.class);
 
-		// Initialize a TabSpec for each tab and add it to the TabHost
-		spec = tabHost
-				.newTabSpec("Featured")
-				.setIndicator("",
-                        res.getDrawable(R.drawable.tab_featured))
-				.setContent(intent);
-
-		tabHost.addTab(spec);
-
-		
-		intent = new Intent().setClass(this, TicketActivity.class);
-
-		// Initialize a TabSpec for each tab and add it to the TabHost
-		spec = tabHost
-				.newTabSpec("Ticket")
-				.setIndicator("",
-                        res.getDrawable(R.drawable.tab_ticket))
+		// Initialize a TabSpec for "Featured" tab and add it to the TabHost
+		spec = tabHost.newTabSpec("Featured")
+				.setIndicator("", res.getDrawable(R.drawable.tab_featured))
 				.setContent(intent);
 		tabHost.addTab(spec);
-		
+
+		// Create an Intent to launch an Activity for "Ticket" tab
+		// *akan dihapus dan diganti dengan tab kategorisasi
+		intent = new Intent().setClass(this, CategorizedActivity.class);
+
+		// Initialize a TabSpec for "Categorized" tab and add it to the TabHost
+		spec = tabHost.newTabSpec("Categorized")
+				.setIndicator("", res.getDrawable(R.drawable.tab_ticket))
+				.setContent(intent);
+		tabHost.addTab(spec);
+
+		// Create an Intent to launch an Activity for "MyTicket" tab
 		intent = new Intent().setClass(this, SavedEventActivity.class);
 
-		// Initialize a TabSpec for each tab and add it to the TabHost
-		spec = tabHost
-				.newTabSpec("MyTicket")
-				.setIndicator("",
-                        res.getDrawable(R.drawable.tab_myticket))
+		// Initialize a TabSpec for "MyTicket" tab and add it to the TabHost
+		spec = tabHost.newTabSpec("MyTicket")
+				.setIndicator("", res.getDrawable(R.drawable.tab_myticket))
 				.setContent(intent);
 		tabHost.addTab(spec);
-		
+
+		// set default selected tab to "Featured Tab"
 		tabHost.setCurrentTab(0);
 	}
 }

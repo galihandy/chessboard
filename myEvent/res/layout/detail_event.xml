@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-	<include
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        layout="@layout/header" />
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/header" />
     <!-- Name Label -->
 
     <ScrollView
@@ -24,103 +24,108 @@
                 android:id="@+id/name_label"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dip"
                 android:paddingBottom="5dip"
                 android:paddingTop="5dip"
                 android:textColor="#990000"
                 android:textSize="20dip"
-                android:textStyle="bold"
-                android:layout_centerHorizontal="true" 
-                android:layout_margin="10dip"/>
+                android:textStyle="bold" />
             <!-- Description Label -->
-			
-			<LinearLayout 
-			    android:layout_width="match_parent"
-            	android:layout_height="wrap_content"
-			    android:orientation="vertical"
-			    android:layout_margin="10dip">
-
-			    <TextView
-			        android:layout_width="match_parent"
-			        android:layout_height="wrap_content"
-			        android:text="@string/address"
-			        android:textSize="15dip"
-			        android:textStyle="bold" />
-
-			    <TextView
-			        android:layout_width="match_parent"
-			        android:layout_height="wrap_content"
-			        android:id="@+id/address"
-			        android:textSize="15dip" />
 
-			</LinearLayout>
-			<LinearLayout 
-			    android:orientation="vertical"
-			    android:layout_width="match_parent"
-            	android:layout_height="wrap_content"
-			    android:layout_margin="10dip">
-			    <TextView android:text="@string/date"
-			        android:layout_width="match_parent"
-            	android:layout_height="wrap_content"
-			        android:textSize="15dip"
-                	android:textStyle="bold"/>
-			    <TextView android:id="@+id/date"
-			        android:layout_width="match_parent"
-            	android:layout_height="wrap_content"
-			        android:textSize="15dip"/>
-			</LinearLayout>
-			<LinearLayout 
-			    android:orientation="vertical"
-			    android:layout_width="match_parent"
-            	android:layout_height="wrap_content"
-			    android:layout_margin="10dip">
-			    <TextView android:text="@string/description"
-			        android:layout_width="match_parent"
-            	android:layout_height="wrap_content"
-			        android:textSize="15dip"
-                	android:textStyle="bold"/>
-			    <TextView android:id="@+id/description"
-			        android:layout_width="match_parent"
-            	android:layout_height="wrap_content"
-			        android:textSize="15dip"/>
-			</LinearLayout>
-			<LinearLayout 
-			    android:orientation="vertical"
-			    android:layout_width="match_parent"
-            	android:layout_height="wrap_content"
-			    android:layout_margin="10dip">
-			    <TextView android:text="@string/ticket"
-			        android:layout_width="match_parent"
-            	android:layout_height="wrap_content"
-			        android:textSize="15dip"
-                	android:textStyle="bold"/>
-			    <TextView android:id="@+id/ticket"
-			        android:layout_width="match_parent"
-            	android:layout_height="wrap_content"
-			        android:textSize="15dip"/>
-			</LinearLayout>
-           
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/address"
+                    android:textSize="15dip"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date"
+                    android:textSize="15dip"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description"
+                    android:textSize="15dip"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ticket"
+                    android:textSize="15dip"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ticket"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dip" />
+            </LinearLayout>
 
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-            	android:layout_height="wrap_content"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
                 <Button
                     android:id="@+id/add_event"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.49"
                     android:onClick="onClick"
                     android:text="Add to My Event" />
-
-                <Button
-                    android:id="@+id/purchase"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:onClick="onClick"
-                    android:text="Buy Ticket!!" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

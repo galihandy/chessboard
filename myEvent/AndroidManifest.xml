@@ -28,7 +28,7 @@
             android:label="@string/title_activity_featured" >
         </activity>
         <activity
-            android:name=".TicketActivity"
+            android:name=".CategorizedActivity"
             android:label="@string/title_activity_ticket" >
         </activity>
         <activity

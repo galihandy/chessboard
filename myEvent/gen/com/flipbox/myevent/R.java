@@ -48,37 +48,34 @@ public final class R {
         public static final int tab_ticket=0x7f020022;
     }
     public static final class id {
-        public static final int LinearLayout01=0x7f070000;
         public static final int add_event=0x7f070008;
-        public static final int add_event2=0x7f070010;
+        public static final int add_event_button=0x7f07000e;
         public static final int address=0x7f070004;
-        public static final int address2=0x7f07000c;
         public static final int date=0x7f070005;
-        public static final int date2=0x7f07000d;
         public static final int description=0x7f070006;
-        public static final int description2=0x7f07000e;
-        public static final int item_image=0x7f070013;
-        public static final int item_subtitle=0x7f070015;
-        public static final int item_title=0x7f070014;
-        public static final int layout1=0x7f070016;
-        public static final int layout2=0x7f07001a;
-        public static final int listview1=0x7f07001b;
-        public static final int logo_myevent=0x7f070012;
-        public static final int menu_settings=0x7f07001e;
+        public static final int event_address=0x7f07000a;
+        public static final int event_date=0x7f07000b;
+        public static final int event_description=0x7f07000c;
+        public static final int event_listview=0x7f070018;
+        public static final int event_name=0x7f070009;
+        public static final int event_ticket=0x7f07000d;
+        public static final int item_image=0x7f070010;
+        public static final int item_subtitle=0x7f070012;
+        public static final int item_title=0x7f070011;
+        public static final int listRelLayout=0x7f070017;
+        public static final int loadingRelLayout=0x7f070014;
+        public static final int logo_myevent=0x7f07000f;
+        public static final int main_linear_layout=0x7f070000;
+        public static final int menu_settings=0x7f07001b;
         public static final int name_label=0x7f070003;
-        public static final int name_label2=0x7f07000b;
-        public static final int progressBar1=0x7f070017;
-        public static final int purchase=0x7f070009;
-        public static final int purchase2=0x7f070011;
-        public static final int refresh_button=0x7f07001d;
-        public static final int sampleLayoutExample=0x7f070019;
-        public static final int sampleText1=0x7f070018;
-        public static final int sampleText2=0x7f07001c;
+        public static final int no_data_textview=0x7f070019;
+        public static final int progress_bar=0x7f070015;
+        public static final int refresh_button=0x7f07001a;
+        public static final int sampleLayoutExample=0x7f070013;
         public static final int scrollView1=0x7f070002;
-        public static final int scrollView2=0x7f07000a;
-        public static final int search=0x7f070001;
+        public static final int search_edittext=0x7f070001;
         public static final int ticket=0x7f070007;
-        public static final int ticket2=0x7f07000f;
+        public static final int waitting_textview=0x7f070016;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -89,25 +86,27 @@ public final class R {
         public static final int list_event_placeholder=0x7f030005;
         public static final int list_feature_item=0x7f030006;
         public static final int list_item=0x7f030007;
-        public static final int loading=0x7f030008;
-        public static final int multiview=0x7f030009;
-        public static final int refresh=0x7f03000a;
+        public static final int multiview=0x7f030008;
+        public static final int refresh=0x7f030009;
     }
     public static final class menu {
         public static final int activity_main=0x7f060000;
     }
     public static final class string {
-        public static final int address=0x7f040007;
+        public static final int address=0x7f04000a;
         public static final int app_name=0x7f040000;
-        public static final int date=0x7f040008;
-        public static final int description=0x7f040009;
+        public static final int date=0x7f04000b;
+        public static final int description=0x7f04000c;
         public static final int hello_world=0x7f040001;
         public static final int menu_settings=0x7f040002;
-        public static final int ticket=0x7f04000a;
-        public static final int title_activity_featured=0x7f040004;
-        public static final int title_activity_main=0x7f040003;
-        public static final int title_activity_myticket=0x7f040006;
-        public static final int title_activity_ticket=0x7f040005;
+        public static final int no_data=0x7f040003;
+        public static final int please_wait=0x7f040009;
+        public static final int search_edit_text_default=0x7f040004;
+        public static final int ticket=0x7f04000d;
+        public static final int title_activity_featured=0x7f040006;
+        public static final int title_activity_main=0x7f040005;
+        public static final int title_activity_myticket=0x7f040008;
+        public static final int title_activity_ticket=0x7f040007;
     }
     public static final class style {
         public static final int AppTheme=0x7f050000;

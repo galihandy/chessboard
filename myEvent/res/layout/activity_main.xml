@@ -4,7 +4,7 @@
     android:layout_height="fill_parent" >
         
 	<LinearLayout
-	    android:id="@+id/LinearLayout01"
+	    android:id="@+id/main_linear_layout"
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
 	    android:orientation="vertical" >
@@ -15,15 +15,12 @@
 	        layout="@layout/header" />
 	    
 	    <EditText
-	       android:id="@+id/search"
+	       android:id="@+id/search_edittext"
 	       android:layout_width="match_parent"
 	       android:layout_height="wrap_content"
 	       android:ems="10" 
-	       android:hint="Type Search here">
-	
-	       <requestFocus />
+	       android:hint="@string/search_edit_text_default">
 	   </EditText>
-	    
 	    
 	    <TabWidget
 	        android:id="@android:id/tabs"

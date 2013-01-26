@@ -1,6 +1,7 @@
 package com.flipbox.myevent;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.StringTokenizer;
 
 import org.json.JSONArray;
@@ -57,8 +58,12 @@ public class DetailEventActivity extends Activity {
 	int id;
 	String title;
 	String desc;
+	String token;
+	String uri;
 	Date date;
-	
+	String[] keys;
+	HashMap<String, String> map;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -68,9 +73,9 @@ public class DetailEventActivity extends Activity {
 		Intent in = getIntent();
 
 		// Get JSON values from previous intent
-		String token = in.getStringExtra("token");
+		token = in.getStringExtra("token");
 		System.out.println("token: " + token);
-		String uri = in.getStringExtra("uri");
+		uri = in.getStringExtra("uri");
 		System.out.println("uri: " + uri);
 
 		if (uri.startsWith("https"))
@@ -79,7 +84,7 @@ public class DetailEventActivity extends Activity {
 		System.out.println("new uri: " + uri);
 
 		TextView lblName = (TextView) findViewById(R.id.name_label);
-		//TextView lblDesc = (TextView) findViewById(R.id.desc_label);
+		// TextView lblDesc = (TextView) findViewById(R.id.desc_label);
 
 		JSONObject detailEventJson = JSONfunctions.getJSONObjectfromURL(uri
 				+ "?token=" + token + "&output=json");
@@ -93,9 +98,9 @@ public class DetailEventActivity extends Activity {
 					.getJSONObject(TAG_BREADCRUMB);
 			// Event name
 			name = breadcrumb.getString(TAG_BUSINESS_NAME);
-			//int id = Integer.parseInt(breadcrumb.getString(TAG_BUSINESS_ID));
+			// int id = Integer.parseInt(breadcrumb.getString(TAG_BUSINESS_ID));
 			lblName.setText(name);
-			
+
 			desc = "";
 
 			// Event Address
@@ -164,13 +169,13 @@ public class DetailEventActivity extends Activity {
 				}
 			}
 
-			//lblDesc.setText(desc);
-			//this.desc = desc;
+			// lblDesc.setText(desc);
+			// this.desc = desc;
 			JSONObject tiket = detailEventJson.getJSONObject(TAG_EVENT_PROFILE);
 			String date = tiket.getString(TAG_TIKET_EVENT_START);
-			
+
 			this.title = name;
-			
+
 			this.date = new Date();
 			Log.i("date", date);
 			this.date = stringToDate(date);
@@ -182,100 +187,96 @@ public class DetailEventActivity extends Activity {
 			note.setText(event_profile.getString(TAG_EVENT_TYPE_DESCRIPTION));
 			TextView ticket = (TextView) findViewById(R.id.ticket);
 			// Event's Tiket
-			String tk = "";		
+			String tk = "";
 			for (int i = 0; i < event_tiket.length(); i++) {
 				tiket = event_tiket.getJSONObject(i);
-				
+
 				String nama = tiket.getString(TAG_TIKET_NAME);
 				String harga = tiket.getString(TAG_TIKET_PRICE);
-				tk += (nama + "\n\tRp. "+harga+"\n\n");
-				
+				tk += (nama + "\n\tRp. " + harga + "\n\n");
+
 			}
 			ticket.setText(tk);
-			//this.id = id;
+			// this.id = id;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			
+
 			e.printStackTrace();
 		}
 
 	}
-	
+
 	public void onClick(View view) {
-		switch(view.getId()) {
+		switch (view.getId()) {
 		case R.id.add_event:
-			//Event event = new Event(id, title, date, null, desc, null, null);
+			// Event event = new Event(id, title, date, null, desc, null, null);
 			Database.insertEvent(0, title, desc, date, null, null, null);
-			Log.i("Insert Event", id+"");
-			if(date != null)
+			Log.i("Insert Event", id + "");
+			if (date != null)
 				showNotification();
-			break;
-		case R.id.purchase:
-			String url = "http://m.tiket.com";
-			Intent i = new Intent(Intent.ACTION_VIEW);
-			i.setData(Uri.parse(url));
-			startActivity(i);
 			break;
 		}
 	}
-	
+
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
-		
+
 		super.onPostCreate(savedInstanceState);
-		
+
 	}
-	
+
 	public void showNotification() {
-	  NotificationManager notificationManager = (NotificationManager) 
-      getSystemService(NOTIFICATION_SERVICE);
-	  
-	  //notification set at 24 hours before the event
-	  long millis = date.getTime() - 86400000;
-	  Notification notification = new Notification(R.drawable.ic_launcher,
-	        "You have event tomorrow.", millis);
-	  
-	  
-	    // Hide the notification after its selected
-	  notification.flags |= Notification.FLAG_AUTO_CANCEL;
-	
-	  Intent intent = new Intent(this, DetailEventActivity.class);
-	  PendingIntent activity = PendingIntent.getActivity(this, 0, intent, 0);
-	  notification.setLatestEventInfo(this, "Notification",
-	      "Click for more info", activity);
-	  // Set default sound
-      notification.defaults |= Notification.DEFAULT_SOUND;
-      //Set the default Vibration
-      notification.defaults |= Notification.DEFAULT_VIBRATE;
-      // Set the light pattern
-      notification.ledARGB = 0xff00ff00;
-      notification.ledOnMS = 300;
-      notification.ledOffMS = 1000;
-      notification.flags |= Notification.FLAG_SHOW_LIGHTS;
-	  notification.number += 1;
-	  
-	  notificationManager.notify(0, notification);
-	  Log.i("Notify", "success");
+		NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+		// notification set at 24 hours before the event
+		long millis = date.getTime() - 86400000;
+		Notification notification = new Notification(R.drawable.ic_launcher,
+				"You have event tomorrow.", millis);
+
+		// Hide the notification after its selected
+		notification.flags |= Notification.FLAG_AUTO_CANCEL;
+
+		Intent in = new Intent(getApplicationContext(),
+				DetailEventActivity.class);
+		in.putExtra("token", token);
+		in.putExtra("uri", uri);
+		
+		PendingIntent activity = PendingIntent.getActivity(this, 0, in, 0);
+		notification.setLatestEventInfo(this, "Notification",
+				"Click for more info", activity);
+		// Set default sound
+		notification.defaults |= Notification.DEFAULT_SOUND;
+		// Set the default Vibration
+		notification.defaults |= Notification.DEFAULT_VIBRATE;
+		// Set the light pattern
+		notification.ledARGB = 0xff00ff00;
+		notification.ledOnMS = 300;
+		notification.ledOffMS = 1000;
+		notification.flags |= Notification.FLAG_SHOW_LIGHTS;
+		notification.number += 1;
+
+		notificationManager.notify(0, notification);
+		Log.i("Notify", "success");
 	}
-	
+
 	public Date stringToDate(String date_string) {
-		if(date_string.equals("") || date_string == null){
+		if (date_string.equals("") || date_string == null) {
 			return null;
 		}
 		StringTokenizer tokenizer = new StringTokenizer(date_string, " ");
-    	String date = tokenizer.nextToken();
-    	String time = tokenizer.nextToken();
-    	
-    	tokenizer = new StringTokenizer(date,"-");
-    	int year = Integer.parseInt(tokenizer.nextToken());
-    	int month = Integer.parseInt(tokenizer.nextToken()) - 1;
-    	int day = Integer.parseInt(tokenizer.nextToken());
-    	
-    	tokenizer = new StringTokenizer(time,":");
-    	int hour = Integer.parseInt(tokenizer.nextToken());
-    	int minute =  Integer.parseInt(tokenizer.nextToken());
-    	int second =  Integer.parseInt(tokenizer.nextToken());
-    	
-    	return new Date(year,month,day,hour,minute,second);
+		String date = tokenizer.nextToken();
+		String time = tokenizer.nextToken();
+
+		tokenizer = new StringTokenizer(date, "-");
+		int year = Integer.parseInt(tokenizer.nextToken());
+		int month = Integer.parseInt(tokenizer.nextToken()) - 1;
+		int day = Integer.parseInt(tokenizer.nextToken());
+
+		tokenizer = new StringTokenizer(time, ":");
+		int hour = Integer.parseInt(tokenizer.nextToken());
+		int minute = Integer.parseInt(tokenizer.nextToken());
+		int second = Integer.parseInt(tokenizer.nextToken());
+
+		return new Date(year, month, day, hour, minute, second);
 	}
 }
