@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">MyEvent</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="no_data">Cannot fetch data</string>
+    <string name="search_edit_text_default">Type search here</string>
+    <string name="title_activity_main">My Event</string>
+    <string name="title_activity_featured">Featured</string>
+    <string name="title_activity_ticket">Ticket</string>
+    <string name="title_activity_myticket">My Ticket</string>
+    <string name="please_wait">Please Wait</string>
+
+</resources>

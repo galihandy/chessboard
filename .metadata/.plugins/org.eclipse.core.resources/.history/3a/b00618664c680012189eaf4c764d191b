@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package com.flipbox.myevent;
+
+/**
+ * @author Galih
+ * 
+ */
+public class GeneralUtilities {
+	
+	public static String dateFormatter(String date) {
+		String formattedDate = "";
+
+		return formattedDate;
+	}
+}

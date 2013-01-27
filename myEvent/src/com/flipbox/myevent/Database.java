@@ -26,23 +26,23 @@ public class Database extends SQLiteOpenHelper {
 
 	private static final String DATABASE_NAME = "MyEvent";
 
+	public static final String EVENT_ID = "id";
+	public static final String EVENT_NAME = "name";
+	public static final String EVENT_DESC = "description";
+	public static final String EVENT_START_DATE = "start_date";
+	public static final String EVENT_END_DATE = "end_date";
+	public static final String EVENT_DATE_PUBLISHED = "date_published";
+	public static final String EVENT_DATE_CREATED = "date_created";
+	public static final String EVENT_LOC = "location";
+	public static final String EVENT_LATD = "latitude";
+	public static final String EVENT_LONGTD = "longitude";
+	public static final String EVENT_CAT = "category";
+	public static final String EVENT_IMG_URL = "img_url";
+	public static final String EVENT_CONTACT = "contact";
+	public static final String EVENT_AUTHOR = "author";
+	public static final String EVENT_TICKET_PRC = "ticket_price";
 	private static final String TABLE_CACHE = "cache";
 	private static final String TABLE_EVENT = "event";
-	private static final String EVENT_ID = "id";
-	private static final String EVENT_NAME = "name";
-	private static final String EVENT_DESC = "description";
-	private static final String EVENT_START_DATE = "start_date";
-	private static final String EVENT_END_DATE = "end_date";
-	private static final String EVENT_DATE_PUBLISHED = "date_published";
-	private static final String EVENT_DATE_CREATED = "date_created";
-	private static final String EVENT_LOC = "location";
-	private static final String EVENT_LATD = "latitude";
-	private static final String EVENT_LONGTD = "longitude";
-	private static final String EVENT_CAT = "category";
-	private static final String EVENT_IMG_URL = "img_url";
-	private static final String EVENT_CONTACT = "contact";
-	private static final String EVENT_AUTHOR = "author";
-	private static final String EVENT_TICKET_PRC = "ticket_price";
 	private static final String CREATE_EVENT_TABLE = "CREATE TABLE IF NOT EXISTS "
 			+ TABLE_EVENT
 			+ " ("
@@ -72,7 +72,10 @@ public class Database extends SQLiteOpenHelper {
 			+ " VARCHAR, "
 			+ EVENT_TICKET_PRC
 			+ " VARCHAR, "
-			+ EVENT_LATD + " INTEGER, " + EVENT_LONGTD + " INTEGER," + ");";
+			+ EVENT_LATD
+			+ " INTEGER, "
+			+ EVENT_LONGTD
+			+ " INTEGER" + ");";
 
 	public Database(Context context) {
 		super(context, DATABASE_NAME, null, 1);
@@ -125,31 +128,23 @@ public class Database extends SQLiteOpenHelper {
 	public static Event insertEvent(Event e) {
 
 		Log.i("db", "insert event");
-		if (isEventExist(e.getId())) {
-			// do nothing
-
-			Log.i("db", "event is exist");
-			return null;
-		} else {
-			// insert data to a table
-			SimpleDateFormat formatter = new SimpleDateFormat(
-					"yyyy-MM-dd HH:mm:ss");
-			String start_datetime = "";
-			if (start_date != null)
-				start_datetime = formatter.format(start_date);
-			String end_datetime = "";
-			if (end_date != null)
-				end_datetime = formatter.format(end_date);
-			db.execSQL("INSERT INTO " + TABLE_EVENT + " VALUES ('" + id + "', "
-					+ "'" + title + "', '" + desc_uri + "', " + "'"
-					+ start_datetime + "', '" + end_datetime + "', '" + image
-					+ "', '" + token + "');");
-			Bitmap image_bitmap = null;
-			if (image != null)
-				image_bitmap = retrieveImageFromInternalStorage(image);
-			return new Event(id, title, start_date, end_date, desc_uri,
-					image_bitmap, token);
-		}
+		/*
+		 * if (isEventExist(e.getId())) { // do nothing
+		 * 
+		 * Log.i("db", "event is exist"); return null; } else { // insert data
+		 * to a table SimpleDateFormat formatter = new SimpleDateFormat(
+		 * "yyyy-MM-dd HH:mm:ss"); String start_datetime = ""; if (start_date !=
+		 * null) start_datetime = formatter.format(start_date); String
+		 * end_datetime = ""; if (end_date != null) end_datetime =
+		 * formatter.format(end_date); db.execSQL("INSERT INTO " + TABLE_EVENT +
+		 * " VALUES ('" + id + "', " + "'" + title + "', '" + desc_uri + "', " +
+		 * "'" + start_datetime + "', '" + end_datetime + "', '" + image +
+		 * "', '" + token + "');"); Bitmap image_bitmap = null; if (image !=
+		 * null) image_bitmap = retrieveImageFromInternalStorage(image);return
+		 * e;// new Event(id, title, start_date, end_date, desc_uri, //
+		 * image_bitmap, token); // }
+		 */
+		return e;
 	}
 
 	public static void insertToken(String token) {
@@ -244,15 +239,16 @@ public class Database extends SQLiteOpenHelper {
 			do {
 				Event my_event = new Event();
 				// set nilai
-				my_event.setId(c.getInt(iid));
-				my_event.setTitle(c.getString(ititle));
-				my_event.setDesc_uri(c.getString(idesc_uri));
-				my_event.setToken(c.getString(itoken));
-				String start_d = c.getString(istart_date);
-				String end_d = c.getString(iend_date);
-				my_event.setStart_date(SQLDateToJavaDate(start_d));
-				my_event.setEnd_date(SQLDateToJavaDate(end_d));
-				// my_event.setImage(retrieveImageFromInternalStorage((c.getString(iimage))));
+				/*
+				 * my_event.setId(c.getInt(iid));
+				 * my_event.setTitle(c.getString(ititle));
+				 * my_event.setDesc_uri(c.getString(idesc_uri));
+				 * my_event.setToken(c.getString(itoken)); String start_d =
+				 * c.getString(istart_date); String end_d =
+				 * c.getString(iend_date);
+				 * my_event.setStart_date(SQLDateToJavaDate(start_d));
+				 * my_event.setEnd_date(SQLDateToJavaDate(end_d));
+				 */// my_event.setImage(retrieveImageFromInternalStorage((c.getString(iimage))));
 
 				// tambahkan ke list
 				list.add(my_event);

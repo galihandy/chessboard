@@ -24,8 +24,8 @@ public class SavedEventActivity extends ListActivity {
 		List<HashMap<String, Object>> list_view = new ArrayList<HashMap<String, Object>>();
 		
 		for (int i = 0; i < list.size(); i++) {
-			map.put("title", list.get(i).getTitle());
-			map.put("date", list.get(i).getStart_date().toString());
+			map.put("title", list.get(i).getName());
+			map.put("date", list.get(i).getStartDate().toString());
 			list_view.add(map);
 		}
 

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <drawable name="row_list_feature_item_bgcolor">#777777</drawable>
+
+</resources>

@@ -4,6 +4,16 @@
 <fullyQualifiedTypeName name="android.app.Notification"/>
 <fullyQualifiedTypeName name="java.security.KeyStore.LoadStoreParameter"/>
 <fullyQualifiedTypeName name="com.flipbox.myevent.Event"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="android.graphics.Bitmap"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.flipbox.myevent.MainActivity"/>
+<fullyQualifiedTypeName name="com.flipbox.myevent.Database"/>
+<fullyQualifiedTypeName name="com.flipbox.myevent.R.drawable"/>
+<fullyQualifiedTypeName name="android.graphics.Color"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="com.flipbox.myevent.R.id"/>
+<fullyQualifiedTypeName name="com.flipbox.myevent.GeneralUtilities"/>
 </qualifiedTypeNameHistroy>

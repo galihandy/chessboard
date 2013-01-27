@@ -179,7 +179,7 @@ public class DetailEventActivity extends Activity {
 			this.date = new Date();
 			Log.i("date", date);
 			this.date = stringToDate(date);
-			TextView add = (TextView) findViewById(R.id.address);
+			TextView add = (TextView) findViewById(R.id.event_location);
 			add.setText(address);
 			TextView dt = (TextView) findViewById(R.id.date);
 			dt.setText(date);
@@ -210,7 +210,7 @@ public class DetailEventActivity extends Activity {
 		switch (view.getId()) {
 		case R.id.add_event:
 			// Event event = new Event(id, title, date, null, desc, null, null);
-			Database.insertEvent(0, title, desc, date, null, null, null);
+			//Database.insertEvent(0, title, desc, date, null, null, null);
 			Log.i("Insert Event", id + "");
 			if (date != null)
 				showNotification();

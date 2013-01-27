@@ -9,40 +9,41 @@ public class Event {
 	private int id;
 	private int latitude;
 	private int longitude;
-	private Date start_date;
-	private Date end_date;
-	private Date date_created;
-	private Date date_published;
+	private Date startDate;
+	private Date endDate;
+	private Date dateCreated;
+	private Date datePublished;
 	private String name;
 	private String desc;
 	private String location;
 	private String category;
-	private String img_url;
+	private String imgUrl;
 	private String author;
 	private String contact;
-	private String ticket_price;
+	private String ticketPrice;
+	private Bitmap image;
 
 	public Event() {
 
 	}
 
-	public Event(int id, String name, String desc, Date start_date,
-			Date end_date, String loc, String category, String img_url,
-			String contact, Date date_created, Date date_published,
-			String author, String ticket_price, int longtd, int latd) {
+	public Event(int id, String name, String desc, Date startDate,
+			Date endDate, String loc, String category, String imgUrl,
+			String contact, Date dateCreated, Date datePublished,
+			String author, String ticketPrice, int longtd, int latd) {
 		this.id = id;
 		this.name = name;
 		this.desc = desc;
-		this.start_date = start_date;
-		this.end_date = end_date;
+		this.startDate = startDate;
+		this.endDate = endDate;
 		this.location = loc;
 		this.category = category;
-		this.img_url = img_url;
+		this.imgUrl = imgUrl;
 		this.contact = contact;
-		this.date_created = date_created;
-		this.date_published = date_published;
+		this.dateCreated = dateCreated;
+		this.datePublished = datePublished;
 		this.author = author;
-		this.ticket_price = ticket_price;
+		this.ticketPrice = ticketPrice;
 		this.latitude = latd;
 		this.longitude = longtd;
 		
@@ -50,9 +51,9 @@ public class Event {
 
 	@Override
 	public String toString() {
-		return title + " " + start_date.toString();
-		// return title + " " + start_date.toString() + " to " +
-		// end_date.toString()
+		return name + " " + startDate.toString();
+		// return title + " " + startDate.toString() + " to " +
+		// endDate.toString()
 		// + ". " + image.toString() + " " + token;
 	}
 
@@ -65,52 +66,119 @@ public class Event {
 		this.id = id;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public Date getStart_date() {
-		return start_date;
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setStart_date(Date start_date) {
-		this.start_date = start_date;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
-	public Date getEnd_date() {
-		return end_date;
+	public Date getEndDate() {
+		return endDate;
 	}
 
-	public void setEnd_date(Date end_date) {
-		this.end_date = end_date;
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 
-	public String getDesc_uri() {
+	public String getDesc() {
 		return desc;
 	}
 
-	public void setDesc_uri(String desc_uri) {
-		this.desc = desc_uri;
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public String getImageUrl() {
+		return imgUrl;
+	}
+
+	public void setImageUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 
 	public Bitmap getImage() {
 		return image;
 	}
 
-	public void setImage(Bitmap image) {
-		this.image = image;
+	public int getLatitude() {
+		return latitude;
 	}
 
-	public String getToken() {
-		return token;
+	public void setLatitude(int latitude) {
+		this.latitude = latitude;
 	}
 
-	public void setToken(String token) {
-		this.token = token;
+	public int getLongitude() {
+		return longitude;
 	}
 
+	public void setLongitude(int longitude) {
+		this.longitude = longitude;
+	}
+
+	public Date getDateCreated() {
+		return dateCreated;
+	}
+
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+
+	public Date getDatePublished() {
+		return datePublished;
+	}
+
+	public void setDatePublished(Date datePublished) {
+		this.datePublished = datePublished;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+	public String getTicketPrice() {
+		return ticketPrice;
+	}
+
+	public void setTicketPrice(String ticketPrice) {
+		this.ticketPrice = ticketPrice;
+	}
 }

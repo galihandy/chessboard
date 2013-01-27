@@ -12,6 +12,7 @@ public final class R {
     }
     public static final class drawable {
         public static final int background_refresh=0x7f020000;
+        public static final int black=0x7f020025;
         public static final int button_add=0x7f020001;
         public static final int button_add_hover=0x7f020002;
         public static final int collections_view_as_list_dark=0x7f020003;
@@ -21,6 +22,7 @@ public final class R {
         public static final int content_event_dark=0x7f020007;
         public static final int content_event_light=0x7f020008;
         public static final int event=0x7f020009;
+        public static final int grey=0x7f020027;
         public static final int ic_action_search=0x7f02000a;
         public static final int ic_launcher=0x7f02000b;
         public static final int icon_favorite=0x7f02000c;
@@ -40,42 +42,51 @@ public final class R {
         public static final int pattern_1=0x7f02001a;
         public static final int pattern_2=0x7f02001b;
         public static final int pattern_3=0x7f02001c;
+        public static final int red=0x7f020026;
         public static final int refresh_background=0x7f02001d;
+        public static final int row_list_feature_item_bgcolor=0x7f020023;
         public static final int size_image_large=0x7f02001e;
         public static final int size_image_small=0x7f02001f;
         public static final int tab_featured=0x7f020020;
         public static final int tab_myticket=0x7f020021;
         public static final int tab_ticket=0x7f020022;
+        public static final int white=0x7f020024;
     }
     public static final class id {
         public static final int add_event=0x7f070008;
-        public static final int add_event_button=0x7f07000e;
-        public static final int address=0x7f070004;
+        public static final int add_event_button=0x7f070012;
         public static final int date=0x7f070005;
         public static final int description=0x7f070006;
-        public static final int event_address=0x7f07000a;
+        public static final int event_author=0x7f07000f;
+        public static final int event_category=0x7f07000e;
+        public static final int event_contact=0x7f070010;
         public static final int event_date=0x7f07000b;
-        public static final int event_description=0x7f07000c;
-        public static final int event_listview=0x7f070018;
-        public static final int event_name=0x7f070009;
+        public static final int event_description=0x7f070011;
+        public static final int event_image=0x7f070014;
+        public static final int event_listview=0x7f07001e;
+        public static final int event_location=0x7f07000c;
+        public static final int event_name=0x7f07000a;
+        public static final int event_startdate=0x7f070015;
         public static final int event_ticket=0x7f07000d;
-        public static final int item_image=0x7f070010;
-        public static final int item_subtitle=0x7f070012;
-        public static final int item_title=0x7f070011;
-        public static final int listRelLayout=0x7f070017;
-        public static final int loadingRelLayout=0x7f070014;
-        public static final int logo_myevent=0x7f07000f;
+        public static final int featured_scrollview=0x7f070009;
+        public static final int item_image=0x7f070016;
+        public static final int item_subtitle=0x7f070018;
+        public static final int item_title=0x7f070017;
+        public static final int listRelLayout=0x7f07001d;
+        public static final int loadingRelLayout=0x7f07001a;
+        public static final int location=0x7f070004;
+        public static final int logo_myevent=0x7f070013;
         public static final int main_linear_layout=0x7f070000;
-        public static final int menu_settings=0x7f07001b;
+        public static final int menu_settings=0x7f070021;
         public static final int name_label=0x7f070003;
-        public static final int no_data_textview=0x7f070019;
-        public static final int progress_bar=0x7f070015;
-        public static final int refresh_button=0x7f07001a;
-        public static final int sampleLayoutExample=0x7f070013;
+        public static final int no_data_textview=0x7f07001f;
+        public static final int progress_bar=0x7f07001b;
+        public static final int refresh_button=0x7f070020;
+        public static final int sampleLayoutExample=0x7f070019;
         public static final int scrollView1=0x7f070002;
         public static final int search_edittext=0x7f070001;
         public static final int ticket=0x7f070007;
-        public static final int waitting_textview=0x7f070016;
+        public static final int waitting_textview=0x7f07001c;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -93,11 +104,14 @@ public final class R {
         public static final int activity_main=0x7f060000;
     }
     public static final class string {
-        public static final int address=0x7f04000a;
         public static final int app_name=0x7f040000;
+        public static final int author=0x7f040010;
+        public static final int category=0x7f04000f;
+        public static final int contact=0x7f04000e;
         public static final int date=0x7f04000b;
         public static final int description=0x7f04000c;
         public static final int hello_world=0x7f040001;
+        public static final int location=0x7f04000a;
         public static final int menu_settings=0x7f040002;
         public static final int no_data=0x7f040003;
         public static final int please_wait=0x7f040009;

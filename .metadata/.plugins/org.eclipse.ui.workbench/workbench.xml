@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="34" version="2.0">
+<workbench progressCount="41" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="75" y="32">
 <fastViewData fastViewLocation="1024"/>
@@ -18,13 +18,13 @@
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="99" y="22"/>
 <coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="107" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="61" y="22"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="com.android.ide.eclipse.editors.CommonXmlEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="com.android.ide.eclipse.editors.CommonXmlEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.ui.browser.editor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -40,31 +40,19 @@
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
-<part id="3"/>
-<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Database.java" partName="Database.java" path="D:/Work/Flipbox/workspace/myevent/myEvent/src/com/flipbox/myevent/Database.java" title="Database.java" tooltip="myEvent/src/com/flipbox/myevent/Database.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/myEvent/src/com/flipbox/myevent/Database.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2172" selectionTopPixel="420"/>
+<editor activePart="true" focus="true" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="detail_feature_event.xml" partName="detail_feature_event.xml" path="D:/Work/Flipbox/workspace/myevent/myEvent/res/layout/detail_feature_event.xml" title="detail_feature_event.xml" tooltip="myEvent/res/layout/detail_feature_event.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/myEvent/res/layout/detail_feature_event.xml"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Event.java" partName="Event.java" path="D:/Work/Flipbox/workspace/myevent/myEvent/src/com/flipbox/myevent/Event.java" title="Event.java" tooltip="myEvent/src/com/flipbox/myevent/Event.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/myEvent/src/com/flipbox/myevent/Event.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1206" selectionTopPixel="410"/>
+<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="strings.xml" partName="strings.xml" path="D:/Work/Flipbox/workspace/myevent/myEvent/res/values/strings.xml" title="strings.xml" tooltip="myEvent/res/values/strings.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/myEvent/res/values/strings.xml"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DetailFeatureEventActivity.java" partName="DetailFeatureEventActivity.java" path="D:/Work/Flipbox/workspace/myevent/myEvent/src/com/flipbox/myevent/DetailFeatureEventActivity.java" title="DetailFeatureEventActivity.java" tooltip="myEvent/src/com/flipbox/myevent/DetailFeatureEventActivity.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/myEvent/src/com/flipbox/myevent/DetailFeatureEventActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4096" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FeaturedActivity.java" partName="FeaturedActivity.java" path="D:/Work/Flipbox/workspace/myevent/myEvent/src/com/flipbox/myevent/FeaturedActivity.java" title="FeaturedActivity.java" tooltip="myEvent/src/com/flipbox/myevent/FeaturedActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/myEvent/src/com/flipbox/myevent/FeaturedActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4071" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CustomAdapter.java" partName="CustomAdapter.java" path="D:/Work/Flipbox/workspace/myevent/myEvent/src/com/flipbox/myevent/CustomAdapter.java" title="CustomAdapter.java" tooltip="myEvent/src/com/flipbox/myevent/CustomAdapter.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/myEvent/src/com/flipbox/myevent/CustomAdapter.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="16133" selectionTopPixel="5735"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1509" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -87,8 +75,9 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings (53 items)"/>
 <category IMemento.internal.id="Warnings"/>
+<category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -159,7 +148,7 @@
 </view>
 <view id="com.android.ide.eclipse.ddms.views.AllocTrackerView" partName="Allocation Tracker"/>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="com.android.ide.eclipse.editors.CommonXmlEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -265,7 +254,7 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="250" ratioRight="750" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.75289017" ratioLeft="521" ratioRight="171" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
@@ -300,7 +289,7 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1ed7cd7" ratio="0.75" ratioLeft="393" ratioRight="131" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
@@ -394,161 +383,116 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/myEvent/src/com/flipbox/myevent/Database.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/myEvent/src/com/flipbox/myevent/FeaturedActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/myEvent/src/com/flipbox/myevent/Event.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/myEvent/src/com/flipbox/myevent/DetailFeatureEventActivity.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/myEvent/res/layout/list_feature_item.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/myEvent/src/com/flipbox/myevent/CustomAdapter.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/myEvent/src/com/flipbox/myevent/Event.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/myEvent/src/com/flipbox/myevent/FeaturedActivity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/myEvent/src/com/flipbox/myevent/DetailFeatureEventActivity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/myEvent/src/com/flipbox/myevent/GeneralUtilities.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/myEvent/res/layout/detail_feature_event.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/myEvent/res/values/strings.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/myEvent/res/values/styles.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/myEvent/res/layout/detail_event.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/myEvent/src/com/flipbox/myevent/DetailEventActivity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/myEvent/src/com/flipbox/myevent/DetailFeatureEventActivity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/myEvent/res/layout/detail_feature_event.xml"/>
 </editors>
-<item historyLabel="FeaturedActivity.java" index="1">
-<position info="not_deleted" x="916" y="0"/>
+<item historyLabel="GeneralUtilities.java" index="4">
+<position info="not_deleted" x="47" y="0"/>
 </item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="6375" y="0"/>
+<item historyLabel="GeneralUtilities.java" index="4">
+<position info="not_deleted" x="347" y="0"/>
 </item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="3796" y="0"/>
-</item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="3749" y="0"/>
-</item>
-<item historyLabel="Event.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Event.java" index="2">
-<position/>
-</item>
-<item historyLabel="Event.java" index="2">
-<position info="not_deleted" x="317" y="0"/>
-</item>
-<item historyLabel="FeaturedActivity.java" index="1">
-<position info="not_deleted" x="6276" y="0"/>
-</item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="3754" y="0"/>
-</item>
-<item historyLabel="Event.java" index="2">
-<position info="not_deleted" x="317" y="0"/>
-</item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="3855" y="0"/>
-</item>
-<item historyLabel="Event.java" index="2">
-<position info="not_deleted" x="317" y="0"/>
-</item>
-<item historyLabel="FeaturedActivity.java" index="1">
-<position info="not_deleted" x="3927" y="0"/>
-</item>
-<item historyLabel="Event.java" index="2">
-<position info="not_deleted" x="317" y="0"/>
+<item historyLabel="FeaturedActivity.java" index="2">
+<position info="not_deleted" x="6254" y="0"/>
 </item>
 <item historyLabel="DetailFeatureEventActivity.java" index="3">
-<position info="not_deleted" x="4096" y="0"/>
+<position info="not_deleted" x="1755" y="0"/>
 </item>
-<item historyLabel="FeaturedActivity.java" index="1">
-<position info="not_deleted" x="4309" y="0"/>
+<item historyLabel="CustomAdapter.java" index="1">
+<position info="not_deleted" x="7810" y="0"/>
 </item>
-<item historyLabel="list_feature_item.xml" index="4"/>
-<item historyLabel="FeaturedActivity.java" index="1">
-<position info="not_deleted" x="4247" y="0"/>
+<item historyLabel="CustomAdapter.java" index="1">
+<position info="not_deleted" x="7746" y="0"/>
 </item>
-<item historyLabel="CustomAdapter.java" index="5">
-<position info="not_deleted" x="3983" y="0"/>
+<item historyLabel="CustomAdapter.java" index="1">
+<position info="not_deleted" x="7801" y="0"/>
 </item>
-<item historyLabel="FeaturedActivity.java" index="1">
-<position info="not_deleted" x="4071" y="0"/>
+<item historyLabel="GeneralUtilities.java" index="4">
+<position info="not_deleted" x="345" y="0"/>
 </item>
-<item historyLabel="CustomAdapter.java" index="5">
-<position info="not_deleted" x="16133" y="0"/>
+<item historyLabel="DetailFeatureEventActivity.java" index="3">
+<position info="not_deleted" x="1755" y="0"/>
 </item>
-<item historyLabel="Event.java" index="2">
-<position info="not_deleted" x="318" y="0"/>
+<item historyLabel="FeaturedActivity.java" index="2">
+<position info="not_deleted" x="1415" y="0"/>
 </item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="3855" y="0"/>
+<item historyLabel="GeneralUtilities.java" index="4">
+<position info="not_deleted" x="345" y="0"/>
 </item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="2443" y="0"/>
+<item historyLabel="list_feature_item.xml" index="0"/>
+<item historyLabel="GeneralUtilities.java" index="4">
+<position info="not_deleted" x="345" y="0"/>
 </item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="2181" y="9"/>
+<item historyLabel="detail_feature_event.xml" index="5"/>
+<item historyLabel="strings.xml" index="6"/>
+<item historyLabel="styles.xml" index="7"/>
+<item historyLabel="strings.xml" index="6"/>
+<item historyLabel="detail_feature_event.xml" index="5"/>
+<item historyLabel="detail_event.xml" index="8"/>
+<item historyLabel="strings.xml" index="6"/>
+<item historyLabel="detail_event.xml" index="8"/>
+<item historyLabel="DetailEventActivity.java" index="9">
+<position info="not_deleted" x="6622" y="0"/>
 </item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="1531" y="0"/>
+<item historyLabel="DetailFeatureEventActivity.java" index="10">
+<position info="not_deleted" x="1827" y="0"/>
 </item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="2555" y="0"/>
+<item historyLabel="detail_event.xml" index="8"/>
+<item historyLabel="strings.xml" index="6"/>
+<item historyLabel="CustomAdapter.java" index="1">
+<position info="not_deleted" x="7801" y="0"/>
 </item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="2374" y="12"/>
+<item historyLabel="strings.xml" index="6"/>
+<item historyLabel="detail_feature_event.xml" index="5"/>
+<item historyLabel="strings.xml" index="6"/>
+<item historyLabel="detail_feature_event.xml" index="5"/>
+<item historyLabel="strings.xml" index="6"/>
+<item historyLabel="detail_feature_event.xml" index="5"/>
+<item historyLabel="DetailFeatureEventActivity.java" index="10">
+<position info="not_deleted" x="1509" y="0"/>
 </item>
-<item historyLabel="Event.java" index="6">
-<position/>
+<item historyLabel="detail_feature_event.xml" index="5"/>
+<item historyLabel="strings.xml" index="6"/>
+<item historyLabel="detail_feature_event.xml" index="5"/>
+<item historyLabel="DetailFeatureEventActivity.java" index="10">
+<position info="not_deleted" x="1509" y="0"/>
 </item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="1039" y="0"/>
+<item historyLabel="detail_feature_event.xml" index="5">
+<position info="not_deleted" x="7128" y="0"/>
 </item>
-<item historyLabel="Event.java" index="6">
-<position/>
+<item historyLabel="detail_feature_event.xml" index="11">
+<position info="not_deleted" x="7128" y="0"/>
 </item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="1039" y="0"/>
+<item historyLabel="strings.xml" index="6"/>
+<item historyLabel="detail_feature_event.xml" index="5"/>
+<item historyLabel="DetailFeatureEventActivity.java" index="10">
+<position info="not_deleted" x="1509" y="0"/>
 </item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="2208" y="13"/>
+<item historyLabel="strings.xml" index="6"/>
+<item historyLabel="detail_feature_event.xml" index="5"/>
+<item historyLabel="strings.xml" index="6"/>
+<item historyLabel="DetailFeatureEventActivity.java" index="10">
+<position info="not_deleted" x="1509" y="0"/>
 </item>
-<item historyLabel="Event.java" index="6">
-<position info="not_deleted" x="588" y="0"/>
+<item historyLabel="strings.xml" index="6"/>
+<item historyLabel="DetailFeatureEventActivity.java" index="10">
+<position info="not_deleted" x="1509" y="0"/>
 </item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="2208" y="13"/>
+<item historyLabel="detail_feature_event.xml" index="5">
+<position info="not_deleted" x="6281" y="0"/>
 </item>
-<item historyLabel="Event.java" index="6">
-<position info="not_deleted" x="660" y="0"/>
-</item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="2208" y="13"/>
-</item>
-<item historyLabel="Event.java" index="6">
-<position info="not_deleted" x="782" y="0"/>
-</item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="2208" y="13"/>
-</item>
-<item historyLabel="Event.java" index="6">
-<position info="not_deleted" x="782" y="0"/>
-</item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="2208" y="13"/>
-</item>
-<item historyLabel="Event.java" index="6">
-<position info="not_deleted" x="782" y="0"/>
-</item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="2172" y="0"/>
-</item>
-<item historyLabel="Event.java" index="6">
-<position info="not_deleted" x="755" y="0"/>
-</item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="2172" y="0"/>
-</item>
-<item historyLabel="Event.java" index="6">
-<position info="not_deleted" x="755" y="0"/>
-</item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="2172" y="0"/>
-</item>
-<item historyLabel="Event.java" index="6">
-<position info="not_deleted" x="699" y="0"/>
-</item>
-<item historyLabel="Database.java" index="0">
-<position info="not_deleted" x="2172" y="0"/>
-</item>
-<item active="true" historyLabel="Event.java" index="6">
-<position info="not_deleted" x="699" y="0"/>
+<item active="true" historyLabel="detail_feature_event.xml" index="11">
+<position info="not_deleted" x="572" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -556,6 +500,14 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="left"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@a52fc9"/>
+<trimItem IMemento.internal.id="right"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 <trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
@@ -565,54 +517,55 @@
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@1ed7cd7"/>
+<trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="background_refresh.png" tooltip="myEvent/res/drawable-mdpi/background_refresh.png">
-<persistable path="/myEvent/res/drawable-mdpi/background_refresh.png"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CustomAdapter.java" tooltip="myEvent/src/com/flipbox/myevent/CustomAdapter.java">
-<persistable path="/myEvent/src/com/flipbox/myevent/CustomAdapter.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="list_feature_item.xml" tooltip="myEvent/res/layout/list_feature_item.xml">
-<persistable path="/myEvent/res/layout/list_feature_item.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FeaturedActivity.java" tooltip="myEvent/src/com/flipbox/myevent/FeaturedActivity.java">
-<persistable path="/myEvent/src/com/flipbox/myevent/FeaturedActivity.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DetailFeatureEventActivity.java" tooltip="myEvent/src/com/flipbox/myevent/DetailFeatureEventActivity.java">
 <persistable path="/myEvent/src/com/flipbox/myevent/DetailFeatureEventActivity.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Event.java" tooltip="myEvent/src/com/flipbox/myevent/Event.java">
-<persistable path="/myEvent/src/com/flipbox/myevent/Event.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" tooltip="myEvent/src/com/flipbox/myevent/MainActivity.java">
-<persistable path="/myEvent/src/com/flipbox/myevent/MainActivity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JSONfunctions.java" tooltip="myEvent/src/com/flipbox/myevent/JSONfunctions.java">
-<persistable path="/myEvent/src/com/flipbox/myevent/JSONfunctions.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Database.java" tooltip="myEvent/src/com/flipbox/myevent/Database.java">
-<persistable path="/myEvent/src/com/flipbox/myevent/Database.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="detail_feature_event.xml" tooltip="myEvent/res/layout/detail_feature_event.xml">
-<persistable path="/myEvent/res/layout/detail_feature_event.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DetailEventActivity.java" tooltip="myEvent/src/com/flipbox/myevent/DetailEventActivity.java">
+<persistable path="/myEvent/src/com/flipbox/myevent/DetailEventActivity.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="detail_event.xml" tooltip="myEvent/res/layout/detail_event.xml">
 <persistable path="/myEvent/res/layout/detail_event.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="myEvent/AndroidManifest.xml">
-<persistable path="/myEvent/AndroidManifest.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="styles.xml" tooltip="myEvent/res/values/styles.xml">
+<persistable path="/myEvent/res/values/styles.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="proguard-project.txt" tooltip="myEvent/proguard-project.txt">
-<persistable path="/myEvent/proguard-project.txt"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="strings.xml" tooltip="myEvent/res/values/strings.xml">
+<persistable path="/myEvent/res/values/strings.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="project.properties" tooltip="myEvent/project.properties">
-<persistable path="/myEvent/project.properties"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="detail_feature_event.xml" tooltip="myEvent/res/layout/detail_feature_event.xml">
+<persistable path="/myEvent/res/layout/detail_feature_event.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="refresh.xml" tooltip="myEvent/res/layout/refresh.xml">
-<persistable path="/myEvent/res/layout/refresh.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="list_feature_item.xml" tooltip="myEvent/res/layout/list_feature_item.xml">
+<persistable path="/myEvent/res/layout/list_feature_item.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GeneralUtilities.java" tooltip="myEvent/src/com/flipbox/myevent/GeneralUtilities.java">
+<persistable path="/myEvent/src/com/flipbox/myevent/GeneralUtilities.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JSONfunctions.java" tooltip="myEvent/src/com/flipbox/myevent/JSONfunctions.java">
+<persistable path="/myEvent/src/com/flipbox/myevent/JSONfunctions.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="color.xml" tooltip="myEvent/res/values/color.xml">
+<persistable path="/myEvent/res/values/color.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CategorizedActivity.java" tooltip="myEvent/src/com/flipbox/myevent/CategorizedActivity.java">
+<persistable path="/myEvent/src/com/flipbox/myevent/CategorizedActivity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Database.java" tooltip="myEvent/src/com/flipbox/myevent/Database.java">
+<persistable path="/myEvent/src/com/flipbox/myevent/Database.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CustomAdapter.java" tooltip="myEvent/src/com/flipbox/myevent/CustomAdapter.java">
+<persistable path="/myEvent/src/com/flipbox/myevent/CustomAdapter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FeaturedActivity.java" tooltip="myEvent/src/com/flipbox/myevent/FeaturedActivity.java">
+<persistable path="/myEvent/src/com/flipbox/myevent/FeaturedActivity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" tooltip="myEvent/src/com/flipbox/myevent/MainActivity.java">
+<persistable path="/myEvent/src/com/flipbox/myevent/MainActivity.java"/>
 </file>
 </mruList>
 </workbench>

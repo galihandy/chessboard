@@ -1,9 +1,5 @@
 <resources>
 
     <style name="AppTheme" parent="android:Theme.Light" />
-    <string name="address">Address</string>
-    <string name="date">Date</string>
-    <string name="description">Note</string>
-    <string name="ticket">Ticket</string>
 
 </resources>

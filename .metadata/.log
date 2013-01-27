@@ -1305,3 +1305,213 @@ org.eclipse.jface.text.BadLocationException
 
 !ENTRY org.eclipse.ui 4 4 2013-01-26 00:03:36.505
 !MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2013-01-26 08:51:49.537 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_06
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.core.resources 2 10035 2013-01-26 08:51:54.937
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.mylyn.tasks.ui 2 0 2013-01-26 08:52:05.447
+!MESSAGE No search provider was registed. Tasks search is not available.
+
+!ENTRY org.eclipse.ui 4 4 2013-01-26 09:42:19.944
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2013-01-26 17:41:14.054 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_06
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.mylyn.tasks.ui 2 0 2013-01-26 17:41:28.584
+!MESSAGE No search provider was registed. Tasks search is not available.
+
+!ENTRY org.eclipse.osgi 2 0 2013-01-26 17:41:57.444
+!MESSAGE While loading class "org.eclipse.cdt.internal.ui.viewsupport.ExcludedFileDecorator", thread "Thread[Worker-8,5,main]" timed out waiting (5006ms) for thread "Thread[main,6,main]" to finish starting bundle "org.eclipse.cdt.ui_5.3.2.201202111925 [244]". To avoid deadlock, thread "Thread[Worker-8,5,main]" is proceeding but "org.eclipse.cdt.internal.ui.viewsupport.ExcludedFileDecorator" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: State change in progress for bundle "reference:file:plugins/org.eclipse.cdt.ui_5.3.2.201202111925.jar" by thread "main".
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:356)
+	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:345)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1207)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.WorkbenchPlugin$1.run(WorkbenchPlugin.java:268)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:52)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:264)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition$1.run(LightweightDecoratorDefinition.java:124)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:888)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.internalGetDecorator(LightweightDecoratorDefinition.java:120)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:251)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:81)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:365)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:347)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:370)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:330)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	... 35 more
+Root exception:
+org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:356)
+	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:345)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1207)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.WorkbenchPlugin$1.run(WorkbenchPlugin.java:268)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:52)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:264)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition$1.run(LightweightDecoratorDefinition.java:124)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:888)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.internalGetDecorator(LightweightDecoratorDefinition.java:120)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:251)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:81)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:365)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:347)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:370)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:330)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.ui 4 4 2013-01-26 23:49:15.317
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2013-01-27 10:46:08.241 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_06
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.mylyn.tasks.ui 2 0 2013-01-27 10:46:42.271
+!MESSAGE No search provider was registed. Tasks search is not available.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-01-27 11:35:17.518
+!MESSAGE No command output when running: 'am start -n com.flipbox.myevent/com.flipbox.myevent.MainActivity -a android.intent.action.MAIN -c android.intent.category.LAUNCHER' on device S55705ceb4037
+!STACK 0
+com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:408)
+	at com.android.ddmlib.Device.executeShellCommand(Device.java:453)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(ActivityLaunchAction.java:75)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.doLaunchAction(AndroidLaunchController.java:1272)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launchApp(AndroidLaunchController.java:1256)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.simpleLaunch(AndroidLaunchController.java:901)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.continueLaunch(AndroidLaunchController.java:743)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launch(AndroidLaunchController.java:560)
+	at com.android.ide.eclipse.adt.internal.launch.LaunchConfigDelegate.doLaunch(LaunchConfigDelegate.java:322)
+	at com.android.ide.eclipse.adt.internal.launch.LaunchConfigDelegate.launch(LaunchConfigDelegate.java:238)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.ui 4 4 2013-01-27 11:39:26.914
+!MESSAGE Invalid preference page path: XML Syntax
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:44:03.187
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/date
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:44:03.238
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/description
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:44:03.244
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/ticket
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:47:09.624
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/date
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:47:09.634
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/description
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:47:09.639
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/ticket
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:49:17.967
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/date
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:49:17.976
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/description
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:49:17.981
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/ticket
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:53:18.690
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/date
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:53:18.700
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/ticket
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:53:18.705
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/description
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:55:05.576
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/date
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:55:05.691
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/ticket
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 14:55:05.696
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/description
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 15:17:10.775
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/date
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 15:17:10.784
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/ticket
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 15:17:10.798
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/description
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 15:22:34.727
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/date
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 15:22:34.736
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/ticket
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 15:22:34.750
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/description
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 15:23:35.637
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/date
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 15:23:35.646
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/ticket
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-01-27 15:23:35.664
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @string/description
