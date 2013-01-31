@@ -18,11 +18,7 @@ package com.flipbox.myevent;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.Interpolator.Result;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.LayoutInflater;
@@ -32,13 +28,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.net.Uri;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -154,7 +144,13 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
 		} else {
 			v = convertView;
 		}
-
+		
+		if(position % 2 != 0){
+			v.setBackgroundColor(Color.LTGRAY);
+		} else {
+			v.setBackgroundColor(Color.WHITE);
+		}
+		
 		bindView(position, v);
 		return v;
 	}
@@ -179,7 +175,7 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
 	}
 
 	private void bindView(int position, View view) {
-		final Map dataSet = mData.get(position);
+		final Map<?, ?> dataSet = mData.get(position);
 		if (dataSet == null) {
 			return;
 		}
@@ -235,7 +231,7 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
 						// ifs since a lot of views are TextViews (e.g.
 						// CheckBoxes).
 						if(v.getId() == R.id.event_startdate){
-							text = GeneralUtilities.dateFormatter(text);
+							text = MyUtil.dateFormatter(text);
 						}
 						setViewText((TextView) v, text);
 					} else if (v instanceof ImageView) {
@@ -447,6 +443,7 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
 			return results;
 		}
 
+		@SuppressWarnings("unchecked")
 		@Override
 		protected void publishResults(CharSequence constraint,
 				FilterResults results) {

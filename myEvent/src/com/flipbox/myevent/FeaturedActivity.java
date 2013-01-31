@@ -24,15 +24,14 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.SimpleAdapter;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
 
 public class FeaturedActivity extends Activity {
 
-	JSONObject e;
-	JSONArray e_content;
-	ListView lv;
+	public static final int CLASS_ID = 0;
+	private JSONObject e;
+	private ListView lv;
+	private String[] keys;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -41,6 +40,7 @@ public class FeaturedActivity extends Activity {
 
 		// show progress bar while load the data from url
 		SwitchLayout1();
+		keys = MyUtil.KEYS;
 		new JSONArrayLoaderTask().execute(MainActivity.GET_ALL_EVENT);
 	}
 
@@ -53,10 +53,13 @@ public class FeaturedActivity extends Activity {
 		RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.loadingRelLayout);
 		// list layout
 		RelativeLayout eventListLayout = (RelativeLayout) findViewById(R.id.listRelLayout);
+		// no data text layout
+		RelativeLayout noDataLayout = (RelativeLayout) findViewById(R.id.noDataRelLayout);
 
 		// show progress bar & hide the listview
 		loadingLayout.setVisibility(View.VISIBLE);
 		eventListLayout.setVisibility(View.GONE);
+		noDataLayout.setVisibility(View.GONE);
 	}
 
 	/**
@@ -68,13 +71,31 @@ public class FeaturedActivity extends Activity {
 		RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.loadingRelLayout);
 		// list layout
 		RelativeLayout eventListLayout = (RelativeLayout) findViewById(R.id.listRelLayout);
+		// no data text layout
+		RelativeLayout noDataLayout = (RelativeLayout) findViewById(R.id.noDataRelLayout);
 
 		// hide the progress bar & show the listview
 		loadingLayout.setVisibility(View.GONE);
 		eventListLayout.setVisibility(View.VISIBLE);
+		noDataLayout.setVisibility(View.GONE);
 	}
 
-	class JSONArrayLoaderTask extends AsyncTask<String, Void, JSONArray> {
+	private void SwitchLayout3() {
+		// progress bar layout
+		RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.loadingRelLayout);
+		// list layout
+		RelativeLayout eventListLayout = (RelativeLayout) findViewById(R.id.listRelLayout);
+		// no data text layout
+		RelativeLayout noDataLayout = (RelativeLayout) findViewById(R.id.noDataRelLayout);
+
+		// hide the progress bar & show the listview
+		loadingLayout.setVisibility(View.GONE);
+		eventListLayout.setVisibility(View.VISIBLE);
+		noDataLayout.setVisibility(View.GONE);
+	}
+
+	private class JSONArrayLoaderTask extends
+			AsyncTask<String, Void, JSONArray> {
 		HashMap<String, Object> map;
 
 		// Before running code in the separate thread
@@ -106,15 +127,13 @@ public class FeaturedActivity extends Activity {
 					for (int i = 0; i < result.length(); i++) {
 						map = new HashMap<String, Object>();
 						e = result.getJSONObject(i);
-						e_content = e.names();
 
 						System.out.println("ZZ NAME : "
 								+ e.getString(Database.EVENT_NAME) + ":");
 
 						if (isValid(e)) {
-							for (int j = 0; j < e_content.length(); j++) {
-								map.put(e_content.getString(j),
-										e.getString(e_content.getString(j)));
+							for (int j = 0; j < keys.length; j++) {
+								map.put(keys[j], e.getString(keys[j]));
 								// map.put("image",
 								// "http://mydinkydonuts.com/wp-content/uploads/2011/09/big-event.jpg");
 								// new FetchImageTask() {
@@ -133,7 +152,8 @@ public class FeaturedActivity extends Activity {
 					ex.printStackTrace();
 				}
 
-				String[] from = new String[] { Database.EVENT_NAME, Database.EVENT_START_DATE, "image" };
+				String[] from = new String[] { Database.EVENT_NAME,
+						Database.EVENT_START_DATE, "image" };
 
 				int[] to = new int[] { R.id.event_name, R.id.event_startdate,
 						R.id.event_image };
@@ -152,28 +172,24 @@ public class FeaturedActivity extends Activity {
 								.getItemAtPosition(position);
 
 						Intent in = new Intent(getBaseContext(),
-								DetailFeatureEventActivity.class);
-
-						String[] keys = new String[e_content.length()];
-
-						for (int j = 0; j < e_content.length(); j++) {
-							try {
-								keys[j] = e_content.getString(j);
-								in.putExtra(e_content.getString(j),
-										o.get(e_content.getString(j)));
-							} catch (JSONException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
+								DetailEventActivity.class);
+						in.putExtra("starting act", CLASS_ID);
+						for (int j = 0; j < keys.length; j++) {
+							String key = keys[j];
+							in.putExtra(key, o.get(key));
 						}
-						in.putExtra("keys", keys);
 						startActivity(in);
 					}
 				});
-			}
 
-			// switch view
-			SwitchLayout2();
+				if (adapter.isEmpty()) {
+					SwitchLayout3();
+
+				} else {
+					SwitchLayout2();
+
+				}
+			}
 		}
 
 		private boolean isValid(JSONObject e) throws JSONException {

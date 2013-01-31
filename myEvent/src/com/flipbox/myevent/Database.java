@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.StringTokenizer;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -125,26 +126,31 @@ public class Database extends SQLiteOpenHelper {
 
 	// simpan event ke database
 	/* butuh diperbaiki */
-	public static Event insertEvent(Event e) {
+	public static boolean insertEvent(Event e) {
+		long result = -1;
+		if (!isEventExist(e.getId())) {
+			Log.i("db", "insert event");
+			ContentValues values = new ContentValues();
+			values.put(EVENT_ID, e.getId());
+			values.put(EVENT_NAME, e.getName());
+			values.put(EVENT_DESC, e.getDesc());
+			values.put(EVENT_START_DATE, e.getStartDate());
+			values.put(EVENT_END_DATE, e.getEndDate());
+			values.put(EVENT_LOC, e.getLocation());
+			values.put(EVENT_CAT, e.getCategory());
+			values.put(EVENT_IMG_URL, e.getImageUrl());
+			values.put(EVENT_CONTACT, e.getContact());
+			values.put(EVENT_DATE_PUBLISHED, e.getDatePublished());
+			values.put(EVENT_DATE_CREATED, e.getDateCreated());
+			values.put(EVENT_AUTHOR, e.getAuthor());
+			values.put(EVENT_TICKET_PRC, e.getTicketPrice());
+			values.put(EVENT_LATD, e.getLatitude());
+			values.put(EVENT_LONGTD, e.getLongitude());
 
-		Log.i("db", "insert event");
-		/*
-		 * if (isEventExist(e.getId())) { // do nothing
-		 * 
-		 * Log.i("db", "event is exist"); return null; } else { // insert data
-		 * to a table SimpleDateFormat formatter = new SimpleDateFormat(
-		 * "yyyy-MM-dd HH:mm:ss"); String start_datetime = ""; if (start_date !=
-		 * null) start_datetime = formatter.format(start_date); String
-		 * end_datetime = ""; if (end_date != null) end_datetime =
-		 * formatter.format(end_date); db.execSQL("INSERT INTO " + TABLE_EVENT +
-		 * " VALUES ('" + id + "', " + "'" + title + "', '" + desc_uri + "', " +
-		 * "'" + start_datetime + "', '" + end_datetime + "', '" + image +
-		 * "', '" + token + "');"); Bitmap image_bitmap = null; if (image !=
-		 * null) image_bitmap = retrieveImageFromInternalStorage(image);return
-		 * e;// new Event(id, title, start_date, end_date, desc_uri, //
-		 * image_bitmap, token); // }
-		 */
-		return e;
+			result = db.insert(TABLE_EVENT, null, values);
+		}
+
+		return (result == -1) ? false : true;
 	}
 
 	public static void insertToken(String token) {
@@ -166,7 +172,7 @@ public class Database extends SQLiteOpenHelper {
 	}
 
 	// hapus event berdasarkan id
-	public static void removeEvent(int id) {
+	public static void removeEvent(String id) {
 
 		Log.i("removeEvent", "remove event");
 		db.execSQL("DELETE FROM " + TABLE_EVENT + " where id = '" + id + "'");
@@ -185,13 +191,15 @@ public class Database extends SQLiteOpenHelper {
 
 	}
 
-	private static boolean isEventExist(int id) {
+	private static boolean isEventExist(String id) {
 		boolean isExist = false;
+		final String query = "SELECT * FROM " + TABLE_EVENT + " WHERE id='"
+				+ id + "'";
 
 		Log.i("isEventExist() - Database", "check existing...");
+
 		// ambil data dari database
-		Cursor c = db.rawQuery("SELECT * FROM " + TABLE_EVENT + " WHERE id='"
-				+ id + "'", null);
+		Cursor c = db.rawQuery(query, null);
 
 		if (c != null && c.moveToFirst()) {
 			isExist = true;
@@ -222,36 +230,49 @@ public class Database extends SQLiteOpenHelper {
 	public static ArrayList<Event> getMyEventList() {
 
 		Log.i("getMyEventList() - Database", "get list article...");
-		// ambil data dari database
-		Cursor c = db.rawQuery("SELECT * FROM " + TABLE_EVENT, null);
-
+		final String query = "SELECT * FROM " + TABLE_EVENT;
 		ArrayList<Event> list = new ArrayList<Event>();
-		int iid = c.getColumnIndex("id");
-		int ititle = c.getColumnIndex("title");
-		int istart_date = c.getColumnIndex("start_date");
-		int iend_date = c.getColumnIndex("end_date");
-		int idesc_uri = c.getColumnIndex("desc_uri");
-		int iimage = c.getColumnIndex("image");
-		int itoken = c.getColumnIndex("token");
+
+		// ambil data dari database
+		Cursor c = db.rawQuery(query, null);
+		int iId = c.getColumnIndex(EVENT_ID);
+		int iName = c.getColumnIndex(EVENT_NAME);
+		int iDesc = c.getColumnIndex(EVENT_DESC);
+		int iStartDate = c.getColumnIndex(EVENT_START_DATE);
+		int iEndDate = c.getColumnIndex(EVENT_END_DATE);
+		int iDatePublished = c.getColumnIndex(EVENT_DATE_PUBLISHED);
+		int iDateCreated = c.getColumnIndex(EVENT_DATE_CREATED);
+		int iLoc = c.getColumnIndex(EVENT_LOC);
+		int iLat = c.getColumnIndex(EVENT_LATD);
+		int iLongtd = c.getColumnIndex(EVENT_LONGTD);
+		int iCat = c.getColumnIndex(EVENT_CAT);
+		int iImgUrl = c.getColumnIndex(EVENT_IMG_URL);
+		int iContact = c.getColumnIndex(EVENT_CONTACT);
+		int iAuthor = c.getColumnIndex(EVENT_AUTHOR);
+		int iTicketPrc = c.getColumnIndex(EVENT_TICKET_PRC);
 
 		if (c != null && c.moveToFirst()) {
-			// loop
 			do {
-				Event my_event = new Event();
-				// set nilai
-				/*
-				 * my_event.setId(c.getInt(iid));
-				 * my_event.setTitle(c.getString(ititle));
-				 * my_event.setDesc_uri(c.getString(idesc_uri));
-				 * my_event.setToken(c.getString(itoken)); String start_d =
-				 * c.getString(istart_date); String end_d =
-				 * c.getString(iend_date);
-				 * my_event.setStart_date(SQLDateToJavaDate(start_d));
-				 * my_event.setEnd_date(SQLDateToJavaDate(end_d));
-				 */// my_event.setImage(retrieveImageFromInternalStorage((c.getString(iimage))));
+				Event myEvent = new Event();
 
-				// tambahkan ke list
-				list.add(my_event);
+				// set event value
+				myEvent.setId(c.getString(iId));
+				myEvent.setName(c.getString(iName));
+				myEvent.setDesc(c.getString(iDesc));
+				myEvent.setStartDate(c.getString(iStartDate));
+				myEvent.setEndDate(c.getString(iEndDate));
+				myEvent.setDatePublished(c.getString(iDatePublished));
+				myEvent.setDateCreated(c.getString(iDateCreated));
+				myEvent.setLocation(c.getString(iLoc));
+				myEvent.setLatitude(c.getString(iLat));
+				myEvent.setLongitude(c.getString(iLongtd));
+				myEvent.setCategory(c.getString(iCat));
+				myEvent.setImageUrl(c.getString(iImgUrl));
+				myEvent.setContact(c.getString(iContact));
+				myEvent.setAuthor(c.getString(iAuthor));
+				myEvent.setTicketPrice(c.getString(iTicketPrc));
+				
+				list.add(myEvent);
 
 			} while (c.moveToNext());
 		}

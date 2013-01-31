@@ -1,8 +1,6 @@
 package com.flipbox.myevent;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -16,51 +14,36 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListAdapter;
-import android.widget.ListView;
+import android.widget.ExpandableListView;
 import android.widget.RelativeLayout;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class CategorizedActivity extends Activity {
 
-	public static final String TAG_TOKEN = "token";
-	public static final String TAG_ALL_EVENT = "all_event";
-	public static final String TAG_EVENTS = "events";
-	public static final String TAG_BUSINESS_NAME = "business_name";
-	public static final String TAG_TIKET_EVENT_START = "tiket_event_start";
-	public static final String TAG_TIKET_EVENT_END = "tiket_event_end";
-	public static final String TAG_EVENT_URI = "event_uri";
-	public static final String TAG_EVENT_IMAGE = "event_img";
+	public static final int CLASS_ID = 1;
 
-	String token = null;
-	String uri = null;
-
-	JSONObject e;
-	JSONArray e_content;
-	ListView lv;
-	Bitmap bmp = null;
+	private ExpandableListView expandLv;
+	private ArrayList<String> categoryList;
+	private HashMap<String, List<HashMap<String, Object>>> categoryEventListMap;
+	private String[] keys;
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.multiview);
+		setContentView(R.layout.multiview_categorized);
 		SwitchLayout1();
-		new JSONObjectLoaderTask().execute();
+		keys = MyUtil.KEYS;
+		new JSONArrayLoaderTask().execute(MainActivity.GET_ALL_EVENT);
 	}
 
-	class JSONObjectLoaderTask extends AsyncTask<Void, Void, JSONObject> {
+	private class JSONArrayLoaderTask extends
+			AsyncTask<String, Void, JSONArray> {
 
 		// Before running code in the separate thread
 		@Override
@@ -70,24 +53,8 @@ public class CategorizedActivity extends Activity {
 
 		/** Doing the parsing of json data in a non-ui thread */
 		@Override
-		protected JSONObject doInBackground(Void... url) {
-			JSONObject getTokenJson, searchEventJson = null;
-			try {
-				getTokenJson = JSONfunctions
-						.getJSONObjectfromURL("http://api.master18.tiket.com/apiv1/payexpress?method=getToken&secretkey=1ae330652bf4792a7e6654ab801693d2&output=json");
-				System.out.println("GetTokenJSON: " + getTokenJson.names());
-
-				token = getTokenJson.getString("token");
-				System.out.println("Token: " + token);
-
-				searchEventJson = JSONfunctions
-						.getJSONObjectfromURL("http://api.master18.tiket.com/search/event?q=&token="
-								+ token + "&output=json");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} 
-			return searchEventJson;
+		protected JSONArray doInBackground(String... url) {
+			return JSONfunctions.getJSONArrayfromURL(url[0]);
 		}
 
 		/**
@@ -96,110 +63,156 @@ public class CategorizedActivity extends Activity {
 		 */
 		/** This will be executed in ui thread */
 		@Override
-		protected void onPostExecute(JSONObject result) {
-			System.out.println("jObject: " + result);
+		protected void onPostExecute(JSONArray result) {
+			System.out.println("cat_jArray: " + result);
+
+			HashMap<String, Object> event;
+			JSONObject eJSONObject;
+
+			categoryList = new ArrayList<String>();
+			categoryEventListMap = new HashMap<String, List<HashMap<String, Object>>>();
+
 			if (result == null) {
 
 			} else {
-				List<HashMap<String, Object>> mylist = new ArrayList<HashMap<String, Object>>();
+				List<HashMap<String, Object>> eventList;
 
-				JSONObject searchEventJson = result;
-
-				System.out.println("eventJson: " + searchEventJson.names());
-				JSONObject allEvent = null;
-				JSONArray events = null;
 				try {
-					allEvent = searchEventJson.getJSONObject(TAG_ALL_EVENT);
-					System.out.println("all event: "
-							+ allEvent.names().toString());
-					events = allEvent.getJSONArray(TAG_EVENTS);
-					System.out.println("events: " + events);
-					System.out.println("events(0): " + events.get(0));
+					for (int i = 0; i < result.length(); i++) {
+						eJSONObject = result.getJSONObject(i);
 
-					for (int i = 0; i < events.length(); i++) {
-						HashMap<String, Object> map = new HashMap<String, Object>();
-						JSONObject e = events.getJSONObject(i);
+						if (isValid(eJSONObject)) {
 
-						map.put("id", String.valueOf(i));
-						map.put("name", e.getString(TAG_BUSINESS_NAME));
-						map.put("startTime",
-								"Start Time: "
-										+ e.getString(TAG_TIKET_EVENT_START));
-						map.put("uri", e.getString(TAG_EVENT_URI));
+							event = new HashMap<String, Object>();
 
-						bmp = loadBitmap(e.getString(TAG_EVENT_IMAGE));
-						map.put("image", bmp);
+							for (int j = 0; j < keys.length; j++) {
+								String name = keys[j];
+								Object value = eJSONObject.get(name);
+								event.put(name, value);
+							}
 
-//						new FetchImageTask() {
-//							protected void onPostExecute(Bitmap result) {
-//								if (result != null) {
-//									bmp = result;;
-//								}
-//							}
-//						}.execute(e.getString(TAG_EVENT_IMAGE));
-						
-						
-						mylist.add(map);
+							// get object category and check is it exist or not
+							// in the category list
+							String category = eJSONObject
+									.getString(Database.EVENT_CAT);
+							if (!categoryList.contains(category)) {
+								categoryList.add(category);
+								eventList = new ArrayList<HashMap<String, Object>>();
+							} else {
+								eventList = (ArrayList<HashMap<String, Object>>) categoryEventListMap
+										.get(category);
+							}
+
+							eventList.add(event);
+							categoryEventListMap.put(category, eventList);
+						}
 					}
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
-				ListAdapter adapter = new CustomAdapter(getBaseContext(),
-						mylist, R.layout.list_item, new String[] { "name",
-								"startTime", "image" }, new int[] {
-								R.id.item_title, R.id.item_subtitle,
-								R.id.item_image });
+				CategorizedAdapter adapter = new CategorizedAdapter(
+						CategorizedActivity.this, categoryList,
+						categoryEventListMap, R.layout.list_category_item,
+						R.layout.list_feature_item);
 
-				lv = (ListView) findViewById(R.id.event_listview);
-				lv.setAdapter(adapter);
-				TextView tx = (TextView) findViewById(R.id.no_data_textview);
+				expandLv = (ExpandableListView) findViewById(R.id.categorized_listview);
+				expandLv.setAdapter(adapter);
+				expandLv.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
-				if (adapter.isEmpty()) {
-					lv.setVisibility(View.GONE);
-				} else {
-					tx.setVisibility(View.GONE);
-				}
+					public boolean onChildClick(ExpandableListView parent,
+							View v, int groupPosition, int childPosition,
+							long id) {
 
-				lv.setOnItemClickListener(new OnItemClickListener() {
-					public void onItemClick(AdapterView<?> parent, View view,
-							int position, long id) {
-						@SuppressWarnings("unchecked")
-						HashMap<String, String> o = (HashMap<String, String>) lv
-								.getItemAtPosition(position);
+						String category = categoryList.get(groupPosition);
+						List<HashMap<String, Object>> childList = categoryEventListMap
+								.get(category);
+						HashMap<String, Object> child = childList
+								.get(childPosition);
 
-						// Starting new intent
-						Intent in = new Intent(getApplicationContext(),
+						Intent in = new Intent(getBaseContext(),
 								DetailEventActivity.class);
-						in.putExtra("token", token);
-						in.putExtra("uri", o.get("uri"));
+						in.putExtra("starting act", CLASS_ID);
+						for (int j = 0; j < keys.length; j++) {
+							String key = keys[j];
+							in.putExtra(key, (String) child.get(key));
+						}
 						startActivity(in);
+
+						return true;
 					}
 				});
-			}
 
-			// switch view
-			SwitchLayout2();
+				if (adapter.isEmpty()) {
+					SwitchLayout3();
+
+				} else {
+					SwitchLayout2();
+				}
+			}
+		}
+
+		private boolean isValid(JSONObject e) throws JSONException {
+			if (e.getString(Database.EVENT_NAME) == null
+					|| e.getString(Database.EVENT_NAME) == ""
+					|| e.getString(Database.EVENT_NAME).equals("null")
+					|| e.getString(Database.EVENT_NAME).startsWith("null")) {
+				return false;
+			} else {
+				return true;
+			}
 		}
 	}
 
-	private void SwitchLayout2() {
-		RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.loadingRelLayout);
-		RelativeLayout eventListLayout = (RelativeLayout) findViewById(R.id.listRelLayout);
-
-		// Enable Layout 2 and Disable Layout 1
-		loadingLayout.setVisibility(View.GONE);
-		eventListLayout.setVisibility(View.VISIBLE);
-	}
-
+	/**
+	 * This method will disable/dismiss the listview and show progress bar
+	 * within multivew.xml layout.
+	 */
 	private void SwitchLayout1() {
+		// progress bar layout
 		RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.loadingRelLayout);
+		// list layout
 		RelativeLayout eventListLayout = (RelativeLayout) findViewById(R.id.listRelLayout);
+		// no data text layout
+		RelativeLayout noDataLayout = (RelativeLayout) findViewById(R.id.noDataRelLayout);
 
-		// Enable Layout 1 & Disable Layout2
+		// show progress bar & hide the listview
 		loadingLayout.setVisibility(View.VISIBLE);
 		eventListLayout.setVisibility(View.GONE);
+		noDataLayout.setVisibility(View.GONE);
+	}
+
+	/**
+	 * This method will disable/dismiss the progress bar and show listview
+	 * within multivew.xml layout.
+	 */
+	private void SwitchLayout2() {
+		// progress bar layout
+		RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.loadingRelLayout);
+		// list layout
+		RelativeLayout eventListLayout = (RelativeLayout) findViewById(R.id.listRelLayout);
+		// no data text layout
+		RelativeLayout noDataLayout = (RelativeLayout) findViewById(R.id.noDataRelLayout);
+
+		// hide the progress bar & show the listview
+		loadingLayout.setVisibility(View.GONE);
+		eventListLayout.setVisibility(View.VISIBLE);
+		noDataLayout.setVisibility(View.GONE);
+	}
+
+	private void SwitchLayout3() {
+		// progress bar layout
+		RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.loadingRelLayout);
+		// list layout
+		RelativeLayout eventListLayout = (RelativeLayout) findViewById(R.id.listRelLayout);
+		// no data text layout
+		RelativeLayout noDataLayout = (RelativeLayout) findViewById(R.id.noDataRelLayout);
+
+		// hide the progress bar & show the listview
+		loadingLayout.setVisibility(View.GONE);
+		eventListLayout.setVisibility(View.VISIBLE);
+		noDataLayout.setVisibility(View.GONE);
 	}
 
 	private class FetchImageTask extends AsyncTask<String, Integer, Bitmap> {

@@ -4,7 +4,10 @@ import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.widget.EditText;
 import android.widget.TabHost;
+import android.widget.TextView;
 
 public class MainActivity extends TabActivity {
 
@@ -24,6 +27,8 @@ public class MainActivity extends TabActivity {
 			+ "/service/eventByCategory?category=";
 	public static final String GENERIC_QUERY = BASE_URL + "/service/query?";
 
+	private EditText searchEt;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -32,6 +37,25 @@ public class MainActivity extends TabActivity {
 		// init database
 		Database db = new Database(this, this);
 		Database.createTableIfNotExist();
+
+		searchEt = (EditText) findViewById(R.id.search_edittext);
+
+		searchEt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+			public boolean onEditorAction(TextView v, int actionId,
+					KeyEvent event) {
+				// TODO Auto-generated method stub
+				String keyWord = searchEt.getEditableText().toString();
+				if (keyWord.trim().length() != 0) {
+					Intent in = new Intent().setClass(MainActivity.this,
+							SearchActivity.class);
+					in.putExtra("keyword", keyWord);
+					startActivity(in);
+				}
+
+				return true;
+			}
+		});
 
 		final TabHost tabHost = getTabHost();
 		Resources res = getResources();

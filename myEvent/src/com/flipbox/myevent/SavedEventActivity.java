@@ -2,48 +2,119 @@ package com.flipbox.myevent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class SavedEventActivity extends ListActivity {
-	
+
+	public static final int CLASS_ID = 2;
+	private ArrayList<Event> eventList;
+	private String[] keys;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.list_event_placeholder);
+		setContentView(R.layout.saved_item);
 
-		ArrayList<Event> list = Database.getMyEventList();
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		List<HashMap<String, Object>> list_view = new ArrayList<HashMap<String, Object>>();
-		
-		for (int i = 0; i < list.size(); i++) {
-			map.put("title", list.get(i).getName());
-			map.put("date", list.get(i).getStartDate().toString());
-			list_view.add(map);
-		}
+		eventList = Database.getMyEventList();
+		keys = MyUtil.KEYS;
 
-		ArrayAdapter<Event> adapter = new ArrayAdapter<Event>(this,
-				android.R.layout.simple_list_item_1, list);
+		SavedEventAdapter adapter = new SavedEventAdapter(getBaseContext(),
+				R.layout.list_feature_item, eventList);
+		setListAdapter(adapter);
+		registerForContextMenu(getListView());
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		eventList = Database.getMyEventList();
+		SavedEventAdapter adapter = new SavedEventAdapter(getBaseContext(),
+				R.layout.list_feature_item, eventList);
 		setListAdapter(adapter);
 	}
 
 	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		// TODO Auto-generated method stub
-		super.onListItemClick(l, v, position, id);
-		
-		Event event = (Event) l.getSelectedItem();
-		
-		Intent in = new Intent(getBaseContext(),
-				DetailFeatureEventActivity.class);
+	public boolean onContextItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.context_menu_remove:
+			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item
+					.getMenuInfo();
+			Event e = eventList.get(info.position);
+			Database.removeEvent(e.getId());
 
-		//String[] keys = new String[e_content.length()];
+			eventList = Database.getMyEventList();
+			SavedEventAdapter adapter = new SavedEventAdapter(getBaseContext(),
+					R.layout.list_feature_item, eventList);
+			setListAdapter(adapter);
+			break;
+		}
+
+		return super.onContextItemSelected(item);
+	}
+
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.saved_context_menu, menu);
+
+		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+		Event e = eventList.get(info.position);
+		menu.setHeaderTitle(e.getName());
+
+	}
+
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+
+		super.onListItemClick(l, v, position, id);
+
+		Event e = eventList.get(position);
+
+		Intent in = new Intent(getBaseContext(), DetailEventActivity.class);
+
+		HashMap<String, Object> eventMap = eventToHashMap(e);
+
+		in.putExtra("starting act", CLASS_ID);
+		for (int i = 0; i < MyUtil.KEYS.length; i++) {
+			String key = keys[i];
+			String extra = (String) eventMap.get(key);
+			in.putExtra(key, extra);
+		}
+		startActivity(in);
+	}
+
+	private HashMap<String, Object> eventToHashMap(Event e) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+
+		map.put(Database.EVENT_AUTHOR, e.getAuthor());
+		map.put(Database.EVENT_CAT, e.getCategory());
+		map.put(Database.EVENT_CONTACT, e.getContact());
+		map.put(Database.EVENT_DATE_CREATED, e.getDateCreated());
+		map.put(Database.EVENT_DATE_PUBLISHED, e.getDatePublished());
+		map.put(Database.EVENT_DESC, e.getDesc());
+		map.put(Database.EVENT_END_DATE, e.getEndDate());
+		map.put(Database.EVENT_ID, e.getId());
+		map.put(Database.EVENT_IMG_URL, e.getImageUrl());
+		map.put(Database.EVENT_LATD, e.getLatitude());
+		map.put(Database.EVENT_LONGTD, e.getLongitude());
+		map.put(Database.EVENT_LOC, e.getLocation());
+		map.put(Database.EVENT_NAME, e.getName());
+		map.put(Database.EVENT_START_DATE, e.getStartDate());
+		map.put(Database.EVENT_TICKET_PRC, e.getTicketPrice());
+
+		return map;
 	}
 }

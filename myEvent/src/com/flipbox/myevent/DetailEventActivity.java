@@ -1,249 +1,123 @@
 package com.flipbox.myevent;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.StringTokenizer;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 public class DetailEventActivity extends Activity {
 
-	public static final String TAG_BREADCRUMB = "breadcrumb";
-	public static final String TAG_BUSINESS_ID = "business_id";
-	public static final String TAG_BUSINESS_NAME = "business_name";
-	public static final String TAG_KECAMATAN_NAME = "kecamatan_name";
-	public static final String TAG_CITY_NAME = "city_name";
-	public static final String TAG_PROVINCE_NAME = "province_name";
-	public static final String TAG_COUNTRY_NAME = "country_name";
+	private final int classIdDefault = 10;
+	private String[] keys;
+	private Date startDate;
+	private HashMap<String, String> map;
 
-	public static final String TAG_EVENT_PROFILE = "event_profile";
-	public static final String TAG_TIKET_EVENT_START = "tiket_event_start";
-	public static final String TAG_TIKET_EVENT_END = "tiket_event_end";
-	public static final String TAG_DATE = "date";
-	public static final String TAG_EVENT_TYPE_DESCRIPTION = "event_type_description";
-
-	public static final String TAG_PRIMARY_PHOTOS = "primary_photos";
-
-	public static final String TAG_EVENT_TIKETS = "event_tikets";
-	public static final String TAG_EVENT_TIKET = "event_tiket";
-	public static final String TAG_TIKET_ID = "tiket_id";
-	public static final String TAG_TIKET_NAME = "tiket_name";
-	public static final String TAG_TIKET_PRICE = "tiket_price";
-	public static final String TAG_TIKET_AVAILABLE = "tiket_available";
-	public static final String TAG_TIKET_START_SELL = "tiket_start_sell";
-	public static final String TAG_TIKET_END_SELL = "tiket_end_sell";
-	public static final String TAG_TIKET_MIN_PURCHASE = "tiket_min_purchase";
-	public static final String TAG_TIKET_MAX_PURCHASE = "tiket_max_purchase";
-	public static final String TAG_TIKET_REQUIRED_INFO = "tiket_required_info";
-
-	public static final String TAG_NEARBY_HOTELS = "nearby_hotels";
-	public static final String TAG_NEARBY_HOTEL = "nearby_hotel";
-	public static final String TAG_DISTANCE = "distance";
-	public static final String TAG_BUSINESS_PRIMARY_PHOTO = "business_primary_photo";
-	public static final String TAG_BUSINESS_URI = "business_uri";
-
-	int id;
-	String title;
-	String desc;
-	String token;
-	String uri;
-	Date date;
-	String[] keys;
-	HashMap<String, String> map;
+	private Intent in;
+	private TextView eventNameTV;
+	private TextView eventDateTV;
+	private TextView eventLocTV;
+	private TextView eventTicketTV;
+	private TextView eventCatTV;
+	private TextView eventAuthorTV;
+	private TextView eventContactTV;
+	private TextView eventDescTV;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.detail_event);
+		setContentView(R.layout.detail_feature_event);
+
+		// set view element and its value
+		setViewElement();
 
 		// getting intent data
-		Intent in = getIntent();
+		in = getIntent();
 
 		// Get JSON values from previous intent
-		token = in.getStringExtra("token");
-		System.out.println("token: " + token);
-		uri = in.getStringExtra("uri");
-		System.out.println("uri: " + uri);
+		keys = MyUtil.KEYS;
+		System.out.println("keys: " + Arrays.toString(keys));
+		map = new HashMap<String, String>();
 
-		if (uri.startsWith("https"))
-			uri = "http" + uri.substring(5);
-
-		System.out.println("new uri: " + uri);
-
-		TextView lblName = (TextView) findViewById(R.id.name_label);
-		// TextView lblDesc = (TextView) findViewById(R.id.desc_label);
-
-		JSONObject detailEventJson = JSONfunctions.getJSONObjectfromURL(uri
-				+ "?token=" + token + "&output=json");
-		System.out.println("detailEventJson: " + detailEventJson.names());
-
-		String name, address, kcmtn, city, prov, country, desc;
-
-		try {
-
-			JSONObject breadcrumb = detailEventJson
-					.getJSONObject(TAG_BREADCRUMB);
-			// Event name
-			name = breadcrumb.getString(TAG_BUSINESS_NAME);
-			// int id = Integer.parseInt(breadcrumb.getString(TAG_BUSINESS_ID));
-			lblName.setText(name);
-
-			desc = "";
-
-			// Event Address
-			address = "";
-			kcmtn = breadcrumb.getString(TAG_KECAMATAN_NAME);
-			if (kcmtn != "null")
-				address += kcmtn + ", ";
-			city = breadcrumb.getString(TAG_CITY_NAME);
-			if (city != "null")
-				address += city + ", ";
-			prov = breadcrumb.getString(TAG_PROVINCE_NAME);
-			if (prov != "null")
-				address += prov + ", ";
-			country = breadcrumb.getString(TAG_COUNTRY_NAME);
-			if (country != "null")
-				address += country;
-
-			System.out.println("address: " + address);
-			desc += "address: " + address + "\n";
-			// Event's Profile
-			JSONObject event_profile = detailEventJson
-					.getJSONObject(TAG_EVENT_PROFILE);
-			JSONArray event_profile_content = event_profile.names();
-			for (int i = 0; i < event_profile_content.length(); i++) {
-				String tag = event_profile_content.getString(i);
-				System.out.println(tag + ": " + event_profile.getString(tag));
-				desc += tag + ": " + event_profile.getString(tag) + "\n";
-			}
-
-			// Event's Profile Picture
-			String event_picture = detailEventJson
-					.getString(TAG_PRIMARY_PHOTOS);
-			System.out.println(event_picture);
-
-			// Event's Tiket
-			JSONObject event_tikets = detailEventJson
-					.getJSONObject(TAG_EVENT_TIKETS);
-			JSONArray event_tiket = event_tikets.getJSONArray(TAG_EVENT_TIKET);
-			for (int i = 0; i < event_tiket.length(); i++) {
-				JSONObject tiket = event_tiket.getJSONObject(i);
-				System.out.println(tiket);
-				JSONArray tiket_content = tiket.names();
-				System.out.println(tiket_content);
-				for (int j = 0; j < tiket_content.length(); j++) {
-					String tag = tiket_content.getString(j);
-					System.out.println(tag + ": " + tiket.getString(tag));
-					desc += tag + ": " + tiket.getString(tag) + "\n";
-				}
-			}
-
-			// Nearby Hotel
-			JSONObject nearby_hotels = detailEventJson
-					.getJSONObject(TAG_NEARBY_HOTELS);
-
-			JSONArray nearby_hotel = nearby_hotels
-					.getJSONArray(TAG_NEARBY_HOTEL);
-			for (int i = 0; i < nearby_hotel.length(); i++) {
-				JSONObject hotel = nearby_hotel.getJSONObject(i);
-				System.out.println(hotel);
-				JSONArray hotel_content = hotel.names();
-				System.out.println(hotel_content);
-				for (int j = 0; j < hotel_content.length(); j++) {
-					String tag = hotel_content.getString(j);
-					System.out.println(tag + ": " + hotel.getString(tag));
-					desc += tag + ": " + hotel.getString(tag) + "\n";
-				}
-			}
-
-			// lblDesc.setText(desc);
-			// this.desc = desc;
-			JSONObject tiket = detailEventJson.getJSONObject(TAG_EVENT_PROFILE);
-			String date = tiket.getString(TAG_TIKET_EVENT_START);
-
-			this.title = name;
-
-			this.date = new Date();
-			Log.i("date", date);
-			this.date = stringToDate(date);
-			TextView add = (TextView) findViewById(R.id.event_location);
-			add.setText(address);
-			TextView dt = (TextView) findViewById(R.id.date);
-			dt.setText(date);
-			TextView note = (TextView) findViewById(R.id.description);
-			note.setText(event_profile.getString(TAG_EVENT_TYPE_DESCRIPTION));
-			TextView ticket = (TextView) findViewById(R.id.ticket);
-			// Event's Tiket
-			String tk = "";
-			for (int i = 0; i < event_tiket.length(); i++) {
-				tiket = event_tiket.getJSONObject(i);
-
-				String nama = tiket.getString(TAG_TIKET_NAME);
-				String harga = tiket.getString(TAG_TIKET_PRICE);
-				tk += (nama + "\n\tRp. " + harga + "\n\n");
-
-			}
-			ticket.setText(tk);
-			// this.id = id;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-
-			e.printStackTrace();
+		for (int i = 0; i < keys.length; i++) {
+			String key = keys[i];
+			String extra = in.getStringExtra(key);
+			System.out.println("extra: " + extra);
+			map.put(key, extra);
 		}
 
-	}
-
-	public void onClick(View view) {
-		switch (view.getId()) {
-		case R.id.add_event:
-			// Event event = new Event(id, title, date, null, desc, null, null);
-			//Database.insertEvent(0, title, desc, date, null, null, null);
-			Log.i("Insert Event", id + "");
-			if (date != null)
-				showNotification();
-			break;
-		}
+		setViewElementValue(map);
 	}
 
 	@Override
-	protected void onPostCreate(Bundle savedInstanceState) {
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		int startingActId = in.getIntExtra("starting act",
+				classIdDefault);
+		if (startingActId == SavedEventActivity.CLASS_ID) {
+			inflater.inflate(R.menu.detail_saved_menu, menu);
+		} else if (startingActId != classIdDefault) {
 
-		super.onPostCreate(savedInstanceState);
+			inflater.inflate(R.menu.detail_event_menu, menu);
+		}
+		return super.onCreateOptionsMenu(menu);
+	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		switch (item.getItemId()) {
+		case R.id.add_event:
+
+			addEvent(map);
+
+			if (startDate != null)
+				showNotification();
+			break;
+		case R.id.remove_event:
+			Database.removeEvent(map.get(Database.EVENT_ID));
+			finish();
+			break;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	public void showNotification() {
 		NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
 		// notification set at 24 hours before the event
-		long millis = date.getTime() - 86400000;
+		long millis = startDate.getTime() - 86400000;
 		Notification notification = new Notification(R.drawable.ic_launcher,
 				"You have event tomorrow.", millis);
 
 		// Hide the notification after its selected
 		notification.flags |= Notification.FLAG_AUTO_CANCEL;
 
-		Intent in = new Intent(getApplicationContext(),
-				DetailEventActivity.class);
-		in.putExtra("token", token);
-		in.putExtra("uri", uri);
-		
-		PendingIntent activity = PendingIntent.getActivity(this, 0, in, 0);
+		Intent intent = new Intent(this, DetailEventActivity.class);
+		// put extra to activity intent that will be started from notification
+		for (int i = 0; i < keys.length; i++) {
+			String key = keys[i];
+			String extra = map.get(key);
+			intent.putExtra(key, extra);
+		}
+		intent.putExtra("keys", keys);
+
+		PendingIntent activity = PendingIntent.getActivity(this, 0, intent, 0);
+
 		notification.setLatestEventInfo(this, "Notification",
 				"Click for more info", activity);
+
 		// Set default sound
 		notification.defaults |= Notification.DEFAULT_SOUND;
 		// Set the default Vibration
@@ -278,5 +152,100 @@ public class DetailEventActivity extends Activity {
 		int second = Integer.parseInt(tokenizer.nextToken());
 
 		return new Date(year, month, day, hour, minute, second);
+	}
+
+	private void setViewElement() {
+
+		eventNameTV = (TextView) findViewById(R.id.event_name);
+		eventDateTV = (TextView) findViewById(R.id.event_date);
+		eventLocTV = (TextView) findViewById(R.id.event_location);
+		eventTicketTV = (TextView) findViewById(R.id.event_ticket);
+		eventCatTV = (TextView) findViewById(R.id.event_category);
+		eventAuthorTV = (TextView) findViewById(R.id.event_author);
+		eventContactTV = (TextView) findViewById(R.id.event_contact);
+		eventDescTV = (TextView) findViewById(R.id.event_description);
+	}
+
+	private void setViewElementValue(HashMap<String, String> valueMap) {
+
+		// set event name ************************************
+		String name = valueMap.get(Database.EVENT_NAME);
+		eventNameTV.setText(name);
+
+		// set event date ************************************
+		String eventStartDate = "Start : "
+				+ MyUtil.dateFormatter(valueMap.get(Database.EVENT_START_DATE));
+		String eventEndDate = "End : ";
+		if (valueMap.get(Database.EVENT_END_DATE).equals("null")) {
+			eventEndDate += "-";
+		} else {
+			eventEndDate += MyUtil.dateFormatter(valueMap
+					.get(Database.EVENT_END_DATE));
+		}
+		String date = eventStartDate + "\n" + eventEndDate;
+		eventDateTV.setText(date);
+
+		startDate = stringToDate(valueMap.get(Database.EVENT_START_DATE));
+
+		// set event location ********************************
+		String loc = valueMap.get(Database.EVENT_LOC);
+		String longtd = "-";
+		String latd = "-";
+
+		if (!valueMap.get(Database.EVENT_LONGTD).equals("null")) {
+			longtd = valueMap.get(Database.EVENT_LONGTD);
+		}
+		if (!valueMap.get(Database.EVENT_LATD).equals("null")) {
+			latd = valueMap.get(Database.EVENT_LATD);
+		}
+
+		String eventLoc = loc + "\n" + "lat. " + latd + ", " + "long. "
+				+ longtd;
+		eventLocTV.setText(eventLoc);
+
+		// set event ticket ************************************
+		String ticket = valueMap.get(Database.EVENT_TICKET_PRC);
+		eventTicketTV.setText(ticket);
+
+		// set event category **********************************
+		String category = valueMap.get(Database.EVENT_CAT);
+		eventCatTV.setText(category);
+
+		// set event author ************************************
+		String author = valueMap.get(Database.EVENT_AUTHOR);
+		eventAuthorTV.setText(author);
+
+		// set event contact ***********************************
+		String contact = valueMap.get(Database.EVENT_CONTACT);
+		eventContactTV.setText(contact);
+
+		// set event description *******************************
+		String description = valueMap.get(Database.EVENT_DESC);
+		eventDescTV.setText(description);
+
+	}
+
+	private void addEvent(HashMap<String, String> valueMap) {
+		String id = valueMap.get(Database.EVENT_ID);
+		String name = valueMap.get(Database.EVENT_NAME);
+		String desc = valueMap.get(Database.EVENT_DESC);
+		String startDate = valueMap.get(Database.EVENT_START_DATE);
+		String endDate = valueMap.get(Database.EVENT_END_DATE);
+		String loc = valueMap.get(Database.EVENT_LOC);
+		String cat = valueMap.get(Database.EVENT_CAT);
+		String imgUrl = valueMap.get(Database.EVENT_IMG_URL);
+		String contact = valueMap.get(Database.EVENT_CONTACT);
+		String datePublished = valueMap.get(Database.EVENT_DATE_PUBLISHED);
+		String dateCreated = valueMap.get(Database.EVENT_DATE_CREATED);
+		String author = valueMap.get(Database.EVENT_AUTHOR);
+		String ticketPrc = valueMap.get(Database.EVENT_TICKET_PRC);
+		String lat = valueMap.get(Database.EVENT_LATD);
+		String longtd = valueMap.get(Database.EVENT_LONGTD);
+
+		Event e = new Event(id, name, desc, startDate, endDate, loc, cat,
+				imgUrl, contact, dateCreated, datePublished, author, ticketPrc,
+				lat, longtd);
+
+		Database.insertEvent(e);
 	}
 }

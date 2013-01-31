@@ -35,9 +35,9 @@
             android:name=".MyTicketActivity"
             android:label="@string/title_activity_myticket" >
         </activity>
-        <activity android:name="DetailEventActivity"></activity>
         <activity android:name="SavedEventActivity" android:label="MyTicket"></activity>
-        <activity android:name="DetailFeatureEventActivity"></activity>
+        <activity android:name=".DetailEventActivity"></activity>
+        <activity android:name=".SearchActivity"></activity>
     </application>
 
 </manifest>

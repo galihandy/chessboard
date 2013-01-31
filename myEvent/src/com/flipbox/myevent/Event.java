@@ -1,18 +1,16 @@
 package com.flipbox.myevent;
 
-import java.util.Date;
-
 import android.graphics.Bitmap;
 
 public class Event {
 
-	private int id;
-	private int latitude;
-	private int longitude;
-	private Date startDate;
-	private Date endDate;
-	private Date dateCreated;
-	private Date datePublished;
+	private String id;
+	private String latitude;
+	private String longitude;
+	private String startDate;
+	private String endDate;
+	private String dateCreated;
+	private String datePublished;
 	private String name;
 	private String desc;
 	private String location;
@@ -27,10 +25,10 @@ public class Event {
 
 	}
 
-	public Event(int id, String name, String desc, Date startDate,
-			Date endDate, String loc, String category, String imgUrl,
-			String contact, Date dateCreated, Date datePublished,
-			String author, String ticketPrice, int longtd, int latd) {
+	public Event(String id, String name, String desc, String startDate,
+			String endDate, String loc, String category, String imgUrl,
+			String contact, String dateCreated, String datePublished,
+			String author, String ticketPrice, String lat, String longtd) {
 		this.id = id;
 		this.name = name;
 		this.desc = desc;
@@ -44,7 +42,7 @@ public class Event {
 		this.datePublished = datePublished;
 		this.author = author;
 		this.ticketPrice = ticketPrice;
-		this.latitude = latd;
+		this.latitude = lat;
 		this.longitude = longtd;
 		
 	}
@@ -58,11 +56,11 @@ public class Event {
 	}
 
 	// Accessors and Mutators
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -74,19 +72,19 @@ public class Event {
 		this.name = name;
 	}
 
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 
@@ -110,35 +108,35 @@ public class Event {
 		return image;
 	}
 
-	public int getLatitude() {
+	public String getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(int latitude) {
+	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
 
-	public int getLongitude() {
+	public String getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(int longitude) {
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
 
-	public Date getDateCreated() {
+	public String getDateCreated() {
 		return dateCreated;
 	}
 
-	public void setDateCreated(Date dateCreated) {
+	public void setDateCreated(String dateCreated) {
 		this.dateCreated = dateCreated;
 	}
 
-	public Date getDatePublished() {
+	public String getDatePublished() {
 		return datePublished;
 	}
 
-	public void setDatePublished(Date datePublished) {
+	public void setDatePublished(String datePublished) {
 		this.datePublished = datePublished;
 	}
 

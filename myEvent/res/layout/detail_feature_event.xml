@@ -188,20 +188,6 @@
                     android:textSize="15dip" />
             </LinearLayout>
 
-            <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal" >
-
-                <Button
-                    android:id="@+id/add_event_button"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.49"
-                    android:onClick="onClick"
-                    android:text="Add to My Event" />
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

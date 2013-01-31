@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+package com.flipbox.myevent;
+
+import android.widget.BaseAdapter;
+
+/**
+ * @author Galih
+ * 
+ */
+public class SavedItemAdapter extends BaseAdapter {
+
+}
