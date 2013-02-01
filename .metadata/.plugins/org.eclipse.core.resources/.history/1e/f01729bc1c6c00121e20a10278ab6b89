@@ -73,7 +73,7 @@ public class CategorizedActivity extends Activity {
 			categoryEventListMap = new HashMap<String, List<HashMap<String, Object>>>();
 
 			if (result == null) {
-				SwitchLayout3();
+				SwitchLayout2();
 			} else {
 				List<HashMap<String, Object>> eventList;
 
@@ -211,8 +211,8 @@ public class CategorizedActivity extends Activity {
 
 		// hide the progress bar & show the listview
 		loadingLayout.setVisibility(View.GONE);
-		eventListLayout.setVisibility(View.GONE);
-		noDataLayout.setVisibility(View.VISIBLE);
+		eventListLayout.setVisibility(View.VISIBLE);
+		noDataLayout.setVisibility(View.GONE);
 	}
 
 	private class FetchImageTask extends AsyncTask<String, Integer, Bitmap> {

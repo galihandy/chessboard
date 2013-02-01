@@ -111,7 +111,7 @@ public class SearchActivity extends Activity {
 		protected void onPostExecute(JSONArray result) {
 			System.out.println("jArray: " + result);
 			if (result == null) {
-				searchResultText += "0";
+
 			} else {
 				List<HashMap<String, Object>> mylist = new ArrayList<HashMap<String, Object>>();
 
@@ -175,9 +175,10 @@ public class SearchActivity extends Activity {
 				});
 
 				searchResultText += adapter.getCount() + "";
+				searchResult.setText(searchResultText);
+
 			}
 
-			searchResult.setText(searchResultText);
 			// switch view
 			SwitchLayout2();
 		}

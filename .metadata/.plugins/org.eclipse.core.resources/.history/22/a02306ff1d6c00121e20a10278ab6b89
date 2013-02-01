@@ -175,9 +175,10 @@ public class SearchActivity extends Activity {
 				});
 
 				searchResultText += adapter.getCount() + "";
+				searchResult.setText(searchResultText);
+
 			}
 
-			searchResult.setText(searchResultText);
 			// switch view
 			SwitchLayout2();
 		}

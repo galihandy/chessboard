@@ -41,13 +41,14 @@
 
         <!-- Your Content view here -->
 
-        <ListView
-            android:id="@+id/event_listview"
+        <ExpandableListView
+            android:id="@+id/categorized_listview"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             tools:context=".FeaturedActivity" />
-    </RelativeLayout>
 
+    </RelativeLayout>
+    
     <RelativeLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/noDataRelLayout"

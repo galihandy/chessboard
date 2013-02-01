@@ -90,8 +90,8 @@ public class FeaturedActivity extends Activity {
 
 		// hide the progress bar & show the listview
 		loadingLayout.setVisibility(View.GONE);
-		eventListLayout.setVisibility(View.VISIBLE);
-		noDataLayout.setVisibility(View.GONE);
+		eventListLayout.setVisibility(View.GONE);
+		noDataLayout.setVisibility(View.VISIBLE);
 	}
 
 	private class JSONArrayLoaderTask extends
@@ -119,7 +119,7 @@ public class FeaturedActivity extends Activity {
 		protected void onPostExecute(JSONArray result) {
 			System.out.println("jArray: " + result);
 			if (result == null) {
-
+				SwitchLayout3();
 			} else {
 				List<HashMap<String, Object>> mylist = new ArrayList<HashMap<String, Object>>();
 

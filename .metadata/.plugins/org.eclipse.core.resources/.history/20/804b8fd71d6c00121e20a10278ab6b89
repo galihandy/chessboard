@@ -73,7 +73,7 @@ public class CategorizedActivity extends Activity {
 			categoryEventListMap = new HashMap<String, List<HashMap<String, Object>>>();
 
 			if (result == null) {
-				SwitchLayout3();
+				//SwitchLayout3();
 			} else {
 				List<HashMap<String, Object>> eventList;
 

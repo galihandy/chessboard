@@ -24,36 +24,24 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class SearchActivity extends Activity {
+public class FeaturedActivity extends Activity {
 
-	public static final int CLASS_ID = 3;
-	
-	private TextView searchResult;
+	public static final int CLASS_ID = 0;
 	private JSONObject e;
 	private ListView lv;
 	private String[] keys;
-	private String keyWord;
-	private String searchResultText;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.search_result);
+		setContentView(R.layout.multiview);
 
-		Intent in = getIntent();
-		keyWord = in.getStringExtra("keyword");
-		searchResult = (TextView) findViewById(R.id.search_result_tv);
-		searchResultText = searchResult.getText().toString() + " \'" + keyWord
-				+ "\' : ";
-		searchResult.setText(searchResultText);
 		// show progress bar while load the data from url
 		SwitchLayout1();
 		keys = MyUtil.KEYS;
-		new JSONArrayLoaderTask().execute(MainActivity.GET_EVENT_BY_NAME
-				+ keyWord);
+		new JSONArrayLoaderTask().execute(MainActivity.GET_ALL_EVENT);
 	}
 
 	/**
@@ -65,10 +53,13 @@ public class SearchActivity extends Activity {
 		RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.loadingRelLayout);
 		// list layout
 		RelativeLayout eventListLayout = (RelativeLayout) findViewById(R.id.listRelLayout);
+		// no data text layout
+		RelativeLayout noDataLayout = (RelativeLayout) findViewById(R.id.noDataRelLayout);
 
 		// show progress bar & hide the listview
 		loadingLayout.setVisibility(View.VISIBLE);
 		eventListLayout.setVisibility(View.GONE);
+		noDataLayout.setVisibility(View.GONE);
 	}
 
 	/**
@@ -80,10 +71,27 @@ public class SearchActivity extends Activity {
 		RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.loadingRelLayout);
 		// list layout
 		RelativeLayout eventListLayout = (RelativeLayout) findViewById(R.id.listRelLayout);
+		// no data text layout
+		RelativeLayout noDataLayout = (RelativeLayout) findViewById(R.id.noDataRelLayout);
 
 		// hide the progress bar & show the listview
 		loadingLayout.setVisibility(View.GONE);
 		eventListLayout.setVisibility(View.VISIBLE);
+		noDataLayout.setVisibility(View.GONE);
+	}
+
+	private void SwitchLayout3() {
+		// progress bar layout
+		RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.loadingRelLayout);
+		// list layout
+		RelativeLayout eventListLayout = (RelativeLayout) findViewById(R.id.listRelLayout);
+		// no data text layout
+		RelativeLayout noDataLayout = (RelativeLayout) findViewById(R.id.noDataRelLayout);
+
+		// hide the progress bar & show the listview
+		loadingLayout.setVisibility(View.GONE);
+		eventListLayout.setVisibility(View.VISIBLE);
+		noDataLayout.setVisibility(View.GONE);
 	}
 
 	private class JSONArrayLoaderTask extends
@@ -111,7 +119,7 @@ public class SearchActivity extends Activity {
 		protected void onPostExecute(JSONArray result) {
 			System.out.println("jArray: " + result);
 			if (result == null) {
-				searchResultText += "0";
+
 			} else {
 				List<HashMap<String, Object>> mylist = new ArrayList<HashMap<String, Object>>();
 
@@ -174,12 +182,14 @@ public class SearchActivity extends Activity {
 					}
 				});
 
-				searchResultText += adapter.getCount() + "";
-			}
+				if (adapter.isEmpty()) {
+					SwitchLayout3();
 
-			searchResult.setText(searchResultText);
-			// switch view
-			SwitchLayout2();
+				} else {
+					SwitchLayout2();
+
+				}
+			}
 		}
 
 		private boolean isValid(JSONObject e) throws JSONException {
