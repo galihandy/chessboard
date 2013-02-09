@@ -128,6 +128,7 @@ public class Database extends SQLiteOpenHelper {
 	/* butuh diperbaiki */
 	public static boolean insertEvent(Event e) {
 		long result = -1;
+		
 		if (!isEventExist(e.getId())) {
 			Log.i("db", "insert event");
 			ContentValues values = new ContentValues();
@@ -173,9 +174,10 @@ public class Database extends SQLiteOpenHelper {
 
 	// hapus event berdasarkan id
 	public static void removeEvent(String id) {
-
+		
 		Log.i("removeEvent", "remove event");
 		db.execSQL("DELETE FROM " + TABLE_EVENT + " where id = '" + id + "'");
+		
 	}
 
 	// hapus token

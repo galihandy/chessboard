@@ -14,6 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.SearchManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -30,28 +31,33 @@ import android.widget.AdapterView.OnItemClickListener;
 public class SearchActivity extends Activity {
 
 	public static final int CLASS_ID = 3;
-	
+
 	private TextView searchResult;
 	private JSONObject e;
 	private ListView lv;
 	private String[] keys;
 	private String keyWord;
 	private String searchResultText;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.search_result);
+		setContentView(R.layout.single_list);
+
+		keys = MyUtil.KEYS;
 
 		Intent in = getIntent();
-		keyWord = in.getStringExtra("keyword");
-		searchResult = (TextView) findViewById(R.id.search_result_tv);
-		searchResultText = searchResult.getText().toString() + " \'" + keyWord
-				+ "\' : ";
+
+		if (Intent.ACTION_SEARCH.equals(in.getAction())) {
+			keyWord = in.getStringExtra(SearchManager.QUERY);
+		}
+
+		searchResult = (TextView) findViewById(R.id.single_list_tv);
+		searchResultText = "Search result for \'" + keyWord + "\' : ";
 		searchResult.setText(searchResultText);
 		// show progress bar while load the data from url
 		SwitchLayout1();
-		keys = MyUtil.KEYS;
+
 		new JSONArrayLoaderTask().execute(MainActivity.GET_EVENT_BY_NAME
 				+ keyWord);
 	}
@@ -126,15 +132,6 @@ public class SearchActivity extends Activity {
 						if (isValid(e)) {
 							for (int j = 0; j < keys.length; j++) {
 								map.put(keys[j], e.getString(keys[j]));
-								// map.put("image",
-								// "http://mydinkydonuts.com/wp-content/uploads/2011/09/big-event.jpg");
-								// new FetchImageTask() {
-								// protected void onPostExecute(Bitmap result) {
-								// if (result != null) {
-								// map.put("image", result);
-								// }
-								// }
-								// }.execute(e.getString("image"));
 							}
 							mylist.add(map);
 						}
@@ -181,16 +178,16 @@ public class SearchActivity extends Activity {
 			// switch view
 			SwitchLayout2();
 		}
+	}
 
-		private boolean isValid(JSONObject e) throws JSONException {
-			if (e.getString(Database.EVENT_NAME) == null
-					|| e.getString(Database.EVENT_NAME) == ""
-					|| e.getString(Database.EVENT_NAME).equals("null")
-					|| e.getString(Database.EVENT_NAME).startsWith("null")) {
-				return false;
-			} else {
-				return true;
-			}
+	private boolean isValid(JSONObject e) throws JSONException {
+		if (e.getString(Database.EVENT_NAME) == null
+				|| e.getString(Database.EVENT_NAME) == ""
+				|| e.getString(Database.EVENT_NAME).equals("null")
+				|| e.getString(Database.EVENT_NAME).startsWith("null")) {
+			return false;
+		} else {
+			return true;
 		}
 	}
 

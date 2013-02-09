@@ -1,0 +1,59 @@
+package com.flipbox.myevent;
+
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+
+public class AlarmReceiver extends BroadcastReceiver {
+
+	@Override
+	public void onReceive(Context context, Intent intent) {
+		// TODO Auto-generated method stub
+		showNotification(context,intent);
+	}
+
+	private void showNotification(Context context, Intent intent) {
+		NotificationManager notifMgr = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+		// notification set at 24 hours before the event
+		long timeInMillis = intent.getLongExtra("alarm time", 0);
+		Notification notification = new Notification(R.drawable.ic_launcher,
+				"You have event tomorrow.", timeInMillis);
+
+		// Hide the notification after its selected
+		notification.flags |= Notification.FLAG_AUTO_CANCEL;
+
+		Intent in = new Intent(context, DetailEventActivity.class);
+		// put extra to activity intent that will be started from notification
+		for (int i = 0; i < MyUtil.KEYS.length; i++) {
+			String key = MyUtil.KEYS[i];
+			String extra = map.get(key);
+			in.putExtra(key, extra);
+		}
+		intent.putExtra("keys", keys);
+
+		PendingIntent activity = PendingIntent.getActivity(this, 0, intent, 0);
+
+		notification.setLatestEventInfo(this, "Notification",
+				"Click for more info", activity);
+
+		// Set default sound
+		notification.defaults |= Notification.DEFAULT_SOUND;
+		// Set the default Vibration
+		notification.defaults |= Notification.DEFAULT_VIBRATE;
+		// Set the light pattern
+		notification.ledARGB = 0xff00ff00;
+		notification.ledOnMS = 300;
+		notification.ledOffMS = 1000;
+		notification.flags |= Notification.FLAG_SHOW_LIGHTS;
+		notification.number += 1;
+
+		notificationManager.notify(0, notification);
+		Log.i("Notify", "success");
+	}
+
+}

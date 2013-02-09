@@ -6,12 +6,10 @@ import java.util.HashMap;
 import java.util.StringTokenizer;
 
 import android.app.Activity;
-import android.app.Notification;
-import android.app.NotificationManager;
+import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -63,8 +61,7 @@ public class DetailEventActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
-		int startingActId = in.getIntExtra("starting act",
-				classIdDefault);
+		int startingActId = in.getIntExtra("starting act", classIdDefault);
 		if (startingActId == SavedEventActivity.CLASS_ID) {
 			inflater.inflate(R.menu.detail_saved_menu, menu);
 		} else if (startingActId != classIdDefault) {
@@ -83,7 +80,7 @@ public class DetailEventActivity extends Activity {
 			addEvent(map);
 
 			if (startDate != null)
-				showNotification();
+				setAlarm();
 			break;
 		case R.id.remove_event:
 			Database.removeEvent(map.get(Database.EVENT_ID));
@@ -92,45 +89,30 @@ public class DetailEventActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	
 
-	public void showNotification() {
-		NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+	private void setAlarm() {
 
-		// notification set at 24 hours before the event
-		long millis = startDate.getTime() - 86400000;
-		Notification notification = new Notification(R.drawable.ic_launcher,
-				"You have event tomorrow.", millis);
+		// alarm set at 24 hours before the event
+		long millis = startDate.getTime() - MyUtil.INTRV_24_H_B4;
+		AlarmManager alarmMgr = (AlarmManager) getSystemService(ALARM_SERVICE);
 
 		// Hide the notification after its selected
-		notification.flags |= Notification.FLAG_AUTO_CANCEL;
 
-		Intent intent = new Intent(this, DetailEventActivity.class);
+		Intent intent = new Intent(this, AlarmReceiver.class);
 		// put extra to activity intent that will be started from notification
 		for (int i = 0; i < keys.length; i++) {
 			String key = keys[i];
 			String extra = map.get(key);
 			intent.putExtra(key, extra);
 		}
-		intent.putExtra("keys", keys);
+		
+		intent.putExtra("alarm time", millis);
 
-		PendingIntent activity = PendingIntent.getActivity(this, 0, intent, 0);
+		PendingIntent pIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
 
-		notification.setLatestEventInfo(this, "Notification",
-				"Click for more info", activity);
-
-		// Set default sound
-		notification.defaults |= Notification.DEFAULT_SOUND;
-		// Set the default Vibration
-		notification.defaults |= Notification.DEFAULT_VIBRATE;
-		// Set the light pattern
-		notification.ledARGB = 0xff00ff00;
-		notification.ledOnMS = 300;
-		notification.ledOffMS = 1000;
-		notification.flags |= Notification.FLAG_SHOW_LIGHTS;
-		notification.number += 1;
-
-		notificationManager.notify(0, notification);
-		Log.i("Notify", "success");
+		alarmMgr.set(AlarmManager.RTC_WAKEUP, millis, pIntent);
 	}
 
 	public Date stringToDate(String date_string) {
@@ -142,7 +124,7 @@ public class DetailEventActivity extends Activity {
 		String time = tokenizer.nextToken();
 
 		tokenizer = new StringTokenizer(date, "-");
-		int year = Integer.parseInt(tokenizer.nextToken());
+		int year = Integer.parseInt(tokenizer.nextToken()) - 1900;
 		int month = Integer.parseInt(tokenizer.nextToken()) - 1;
 		int day = Integer.parseInt(tokenizer.nextToken());
 

@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+package com.flipbox.myevent;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+/**
+ * @author Galih
+ *
+ */
+public class CategoryEventListActivity extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+	}
+	
+
+}
