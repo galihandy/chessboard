@@ -1,0 +1,23 @@
+package com.flipbox.myevent;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.SlidingDrawer;
+
+public class SplashscreenActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.splashscreen);
+		
+		Thread splashThread = new Thread(new Runnable() {
+			
+			public void run() {
+				sleep(90);
+				
+			}
+		});
+	}
+
+}

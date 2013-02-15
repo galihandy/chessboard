@@ -1,0 +1,37 @@
+package com.flipbox.myevent;
+
+import java.util.List;
+
+import twitter4j.Status;
+
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+
+public class TwitterAdapter extends BaseAdapter {
+
+	private List<Status> listOfStatus;
+
+	public int getCount() {
+
+		return listOfStatus.size();
+	}
+
+	public Object getItem(int position) {
+		Status s = listOfStatus.get(position);
+		s.getId();
+		return s;
+	}
+
+	public long getItemId(int position) {
+		Status s = listOfStatus.get(position);
+		
+		return s.getId();
+	}
+
+	public View getView(int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
