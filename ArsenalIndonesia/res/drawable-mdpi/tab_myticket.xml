@@ -2,8 +2,8 @@
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- When selected, use grey -->
-    <item android:drawable="@drawable/icon_favorite_hover"
+    <item android:drawable="@drawable/icon_mylist_hover"
           android:state_selected="true" />
     <!-- When not selected, use white-->
-    <item android:drawable="@drawable/icon_favorite" />
+    <item android:drawable="@drawable/icon_mylist" />
 </selector>

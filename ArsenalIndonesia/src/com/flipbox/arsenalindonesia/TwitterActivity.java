@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -31,10 +32,12 @@ public class TwitterActivity extends Activity {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.multiview);
+		EditText searchEt = (EditText) findViewById(R.id.search_edittext);
+		searchEt.setHint("Search tweet");
 		switchToLoadingView();
 		tweetListLv = (ListView) findViewById(R.id.listview);
 		noDataTv = (TextView) findViewById(R.id.no_data_textview);
-		
+
 		new TwitterLoaderTask().execute(new ConfigurationBuilder());
 	}
 
@@ -120,7 +123,7 @@ public class TwitterActivity extends Activity {
 		protected void onPostExecute(TwitterAdapter result) {
 			super.onPostExecute(result);
 
-			if(result == null){
+			if (result == null) {
 				noDataTv.setText(MyUtil.NO_CONN);
 				switchToNoDataTextView();
 			} else if (result.isEmpty()) {

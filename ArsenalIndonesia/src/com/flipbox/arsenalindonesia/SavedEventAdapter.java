@@ -6,7 +6,6 @@ package com.flipbox.arsenalindonesia;
 import java.util.ArrayList;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +20,9 @@ public class SavedEventAdapter extends BaseAdapter {
 
 	private ArrayList<Event> savedEventList;
 	private LayoutInflater inflater;
-	private int resource;
 
-	public SavedEventAdapter(Context context, int resource,
-			ArrayList<Event> savedEventList) {
+	public SavedEventAdapter(Context context, ArrayList<Event> savedEventList) {
 		this.savedEventList = savedEventList;
-		this.resource = resource;
 		this.inflater = LayoutInflater.from(context);
 	}
 
@@ -50,22 +46,21 @@ public class SavedEventAdapter extends BaseAdapter {
 		View v;
 
 		if (convertView == null) {
-			convertView = inflater.inflate(resource, parent, false);
+			convertView = inflater.inflate(R.layout.list_saved_event_item,
+					parent, false);
 		}
 		v = convertView;
-
-		if (position % 2 != 0) {
-			v.setBackgroundColor(Color.LTGRAY);
-		} else {
-			v.setBackgroundColor(Color.WHITE);
-		}
-		
-		TextView eventName = (TextView) v.findViewById(R.id.event_name);
-		TextView startDate = (TextView) v.findViewById(R.id.event_startdate);
-
 		Event e = savedEventList.get(position);
+		
+		String date = MyUtil.dateFormatter(e.getStartDate()).split(",")[0];
+		
+		TextView eventName = (TextView) v.findViewById(R.id.saved_event_name);
+		TextView eventDate = (TextView) v.findViewById(R.id.saved_event_date);
+		TextView eventRegional = (TextView) v.findViewById(R.id.saved_event_reg);
+
 		eventName.setText(e.getName());
-		startDate.setText(MyUtil.dateFormatter(e.getStartDate()));
+		eventDate.setText(" " + date);
+		eventRegional.setText(" " + e.getLocation());
 
 		return v;
 	}

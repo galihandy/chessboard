@@ -3417,3 +3417,443 @@ Caused by: org.eclipse.core.internal.resources.ResourceException: Resource is ou
 
 !ENTRY org.eclipse.ui 4 4 2013-02-15 08:18:58.349
 !MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2013-02-15 13:34:36.772 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_06
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.mylyn.tasks.ui 2 0 2013-02-15 13:35:15.552
+!MESSAGE No search provider was registed. Tasks search is not available.
+
+!ENTRY org.eclipse.ui 4 4 2013-02-15 13:57:53.942
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2013-02-15 17:21:42.955 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_06
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.mylyn.tasks.ui 2 0 2013-02-15 17:22:13.473
+!MESSAGE No search provider was registed. Tasks search is not available.
+
+!ENTRY org.eclipse.ui 4 4 2013-02-15 20:10:44.346
+!MESSAGE Invalid preference page path: XML Syntax
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-15 21:05:33.792
+!MESSAGE detail_feature_event.xml: Couldn't resolve resource @id/reg_label
+
+!ENTRY org.eclipse.jdt.core 4 4 2013-02-15 21:05:53.058
+!MESSAGE JavaBuilder handling CoreException while cleaning: ArsenalIndonesia
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:793)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:114)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.clean(JavaBuilder.java:291)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:394)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:114)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:310)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: Could not delete '/ArsenalIndonesia/bin/classes/com'.
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:352)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:352)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:798)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1941)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:114)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.clean(JavaBuilder.java:291)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:394)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:114)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:310)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: Problems encountered while deleting files.
+Contains: Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\classes\com\flipbox\arsenalindonesia\R$string.class.
+Contains: Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\classes\com\flipbox\arsenalindonesia.
+Contains: Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\classes\com\flipbox.
+Contains: Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\classes\com.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2013-02-15 21:05:53.107
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2013-02-15 21:05:53.107
+!MESSAGE Could not delete '/ArsenalIndonesia/bin/classes/com'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:352)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:352)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:798)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1941)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:114)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.clean(JavaBuilder.java:291)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:394)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:114)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:310)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: Problems encountered while deleting files.
+Contains: Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\classes\com\flipbox\arsenalindonesia\R$string.class.
+Contains: Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\classes\com\flipbox\arsenalindonesia.
+Contains: Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\classes\com\flipbox.
+Contains: Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\classes\com.
+!SUBENTRY 3 org.eclipse.core.resources 4 273 2013-02-15 21:05:53.107
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2013-02-15 21:05:53.108
+!MESSAGE Problems encountered while deleting files.
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2013-02-15 21:05:53.108
+!MESSAGE Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\classes\com\flipbox\arsenalindonesia\R$string.class.
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2013-02-15 21:05:53.108
+!MESSAGE Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\classes\com\flipbox\arsenalindonesia.
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2013-02-15 21:05:53.108
+!MESSAGE Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\classes\com\flipbox.
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2013-02-15 21:05:53.108
+!MESSAGE Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\classes\com.
+!SESSION 2013-02-16 10:03:20.376 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_06
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.mylyn.tasks.ui 2 0 2013-02-16 10:12:04.335
+!MESSAGE No search provider was registed. Tasks search is not available.
+
+!ENTRY org.eclipse.ui 4 4 2013-02-16 10:19:41.045
+!MESSAGE Invalid preference page path: XML Syntax
+
+!ENTRY org.eclipse.core.resources 4 2 2013-02-16 11:04:20.955
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:793)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.android.ide.eclipse.adt.internal.build.builders.PostCompilerBuilder.clean(PostCompilerBuilder.java:154)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:394)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:114)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:310)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: Could not delete 'D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_'.
+org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1937)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.android.ide.eclipse.adt.internal.build.builders.PostCompilerBuilder.clean(PostCompilerBuilder.java:154)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:394)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:114)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:310)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2013-02-16 11:04:20.970
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2013-02-16 11:04:20.970
+!MESSAGE Could not delete 'D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1937)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.android.ide.eclipse.adt.internal.build.builders.PostCompilerBuilder.clean(PostCompilerBuilder.java:154)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:394)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:114)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:310)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_.
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2013-02-16 11:04:20.970
+!MESSAGE Problems encountered while deleting files.
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2013-02-16 11:04:20.970
+!MESSAGE Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2013-02-16 11:04:20.970
+!MESSAGE Could not delete 'D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1937)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.android.ide.eclipse.adt.internal.build.builders.PostCompilerBuilder.clean(PostCompilerBuilder.java:154)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:394)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:114)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:310)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_.
+!SUBENTRY 2 org.eclipse.core.filesystem 4 273 2013-02-16 11:04:20.971
+!MESSAGE Problems encountered while deleting files.
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2013-02-16 11:04:20.971
+!MESSAGE Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_.
+
+!ENTRY org.eclipse.core.resources 4 566 2013-02-16 11:04:20.985
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 com.android.ide.eclipse.adt 4 75 2013-02-16 11:04:20.985
+!MESSAGE Errors running builder 'Android Package Builder' on project 'ArsenalIndonesia'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:793)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.android.ide.eclipse.adt.internal.build.builders.PostCompilerBuilder.clean(PostCompilerBuilder.java:154)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:394)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:114)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:310)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: Could not delete 'D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_'.
+org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1937)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.android.ide.eclipse.adt.internal.build.builders.PostCompilerBuilder.clean(PostCompilerBuilder.java:154)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:394)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:114)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:310)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2013-02-16 11:04:20.985
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 3 org.eclipse.core.resources 4 273 2013-02-16 11:04:20.985
+!MESSAGE Could not delete 'D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1937)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.android.ide.eclipse.adt.internal.build.builders.PostCompilerBuilder.clean(PostCompilerBuilder.java:154)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:394)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:114)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:310)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_.
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2013-02-16 11:04:20.985
+!MESSAGE Problems encountered while deleting files.
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2013-02-16 11:04:20.985
+!MESSAGE Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2013-02-16 11:04:20.985
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2013-02-16 11:04:20.985
+!MESSAGE Could not delete 'D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1937)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.android.ide.eclipse.adt.internal.build.builders.PostCompilerBuilder.clean(PostCompilerBuilder.java:154)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:394)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:114)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:310)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_.
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2013-02-16 11:04:20.986
+!MESSAGE Problems encountered while deleting files.
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2013-02-16 11:04:20.986
+!MESSAGE Could not delete: D:\Work\Flipbox\workspace\myevent\ArsenalIndonesia\bin\resources.ap_.
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-16 11:27:52.476
+!MESSAGE multiview.xml: Couldn't resolve resource @id/search_img
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-16 11:27:52.898
+!MESSAGE multiview.xml: Couldn't resolve resource @id/search_img
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-16 11:27:53.158
+!MESSAGE multiview.xml: Couldn't resolve resource @id/search_img
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-16 11:28:29.010
+!MESSAGE multiview.xml: Couldn't resolve resource @id/search_img
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-16 11:28:29.580
+!MESSAGE multiview.xml: Couldn't resolve resource @id/search_img
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-16 11:29:01.672
+!MESSAGE multiview.xml: Couldn't resolve resource @id/search_img
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-16 11:29:02.227
+!MESSAGE multiview.xml: Couldn't resolve resource @id/search_img
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-16 11:29:33.486
+!MESSAGE multiview.xml: Couldn't resolve resource @id/search_img
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-16 11:29:34.112
+!MESSAGE multiview.xml: Couldn't resolve resource @id/search_img
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-16 11:30:15.593
+!MESSAGE multiview.xml: Couldn't resolve resource @id/search_img
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-16 11:30:16.023
+!MESSAGE multiview.xml: Couldn't resolve resource @id/search_img
+!SESSION 2013-02-16 13:11:14.801 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_06
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.mylyn.tasks.ui 2 0 2013-02-16 13:12:30.905
+!MESSAGE No search provider was registed. Tasks search is not available.
+
+!ENTRY org.eclipse.ui 4 4 2013-02-16 14:04:39.088
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2013-02-17 09:26:57.107 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_06
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.mylyn.tasks.ui 2 0 2013-02-17 09:27:30.364
+!MESSAGE No search provider was registed. Tasks search is not available.

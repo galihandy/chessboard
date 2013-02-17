@@ -26,11 +26,7 @@ public class DetailEventActivity extends Activity {
 	private Intent in;
 	private TextView eventNameTV;
 	private TextView eventDateTV;
-	private TextView eventLocTV;
-	private TextView eventTicketTV;
-	private TextView eventCatTV;
-	private TextView eventAuthorTV;
-	private TextView eventContactTV;
+	private TextView eventRegTV;
 	private TextView eventDescTV;
 
 	@Override
@@ -157,11 +153,7 @@ public class DetailEventActivity extends Activity {
 
 		eventNameTV = (TextView) findViewById(R.id.event_name);
 		eventDateTV = (TextView) findViewById(R.id.event_date);
-		eventLocTV = (TextView) findViewById(R.id.event_location);
-		eventTicketTV = (TextView) findViewById(R.id.event_ticket);
-		eventCatTV = (TextView) findViewById(R.id.event_category);
-		eventAuthorTV = (TextView) findViewById(R.id.event_author);
-		eventContactTV = (TextView) findViewById(R.id.event_contact);
+		eventRegTV = (TextView) findViewById(R.id.event_regional);
 		eventDescTV = (TextView) findViewById(R.id.event_description);
 	}
 
@@ -172,51 +164,16 @@ public class DetailEventActivity extends Activity {
 		eventNameTV.setText(name);
 
 		// set event date ************************************
-		String eventStartDate = "Start : "
-				+ MyUtil.dateFormatter(valueMap.get(Database.EVENT_START_DATE));
-		String eventEndDate = "End : ";
-		if (valueMap.get(Database.EVENT_END_DATE).equals("null")) {
-			eventEndDate += "-";
-		} else {
-			eventEndDate += MyUtil.dateFormatter(valueMap
-					.get(Database.EVENT_END_DATE));
-		}
-		String date = eventStartDate + "\n" + eventEndDate;
-		eventDateTV.setText(date);
+		String date = MyUtil.dateFormatter(valueMap.get(Database.EVENT_START_DATE));
+		eventDateTV.setText(" " + date);
 
 		startDate = stringToDate(valueMap.get(Database.EVENT_START_DATE));
 
 		// set event location ********************************
 		String loc = valueMap.get(Database.EVENT_LOC);
-		String longtd = "-";
-		String latd = "-";
-
-		if (!valueMap.get(Database.EVENT_LONGTD).equals("null")) {
-			longtd = valueMap.get(Database.EVENT_LONGTD);
-		}
-		if (!valueMap.get(Database.EVENT_LATD).equals("null")) {
-			latd = valueMap.get(Database.EVENT_LATD);
-		}
-
-		String eventLoc = loc + "\n" + "lat. " + latd + ", " + "long. "
-				+ longtd;
-		eventLocTV.setText(eventLoc);
-
-		// set event ticket ************************************
-		String ticket = valueMap.get(Database.EVENT_TICKET_PRC);
-		eventTicketTV.setText(ticket);
-
-		// set event category **********************************
-		String category = valueMap.get(Database.EVENT_CAT);
-		eventCatTV.setText(category);
-
-		// set event author ************************************
-		String author = valueMap.get(Database.EVENT_AUTHOR);
-		eventAuthorTV.setText(author);
-
-		// set event contact ***********************************
-		String contact = valueMap.get(Database.EVENT_CONTACT);
-		eventContactTV.setText(contact);
+		
+		String eventLoc = loc;
+		eventRegTV.setText(" " + eventLoc);
 
 		// set event description *******************************
 		String description = valueMap.get(Database.EVENT_DESC);

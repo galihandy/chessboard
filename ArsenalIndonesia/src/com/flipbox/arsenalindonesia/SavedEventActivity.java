@@ -23,13 +23,13 @@ public class SavedEventActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.saved_item);
+		setContentView(R.layout.saved_event_list);
 
 		eventList = Database.getMyEventList();
 		keys = MyUtil.KEYS;
 
 		SavedEventAdapter adapter = new SavedEventAdapter(getBaseContext(),
-				R.layout.list_feature_item, eventList);
+				eventList);
 		setListAdapter(adapter);
 		registerForContextMenu(getListView());
 	}
@@ -39,7 +39,7 @@ public class SavedEventActivity extends ListActivity {
 		super.onResume();
 		eventList = Database.getMyEventList();
 		SavedEventAdapter adapter = new SavedEventAdapter(getBaseContext(),
-				R.layout.list_feature_item, eventList);
+				eventList);
 		setListAdapter(adapter);
 	}
 
@@ -54,8 +54,7 @@ public class SavedEventActivity extends ListActivity {
 			DetailEventActivity.stopAlarm(getBaseContext(), e.getName());
 
 			eventList = Database.getMyEventList();
-			SavedEventAdapter adapter = new SavedEventAdapter(getBaseContext(),
-					R.layout.list_feature_item, eventList);
+			SavedEventAdapter adapter = new SavedEventAdapter(getBaseContext(), eventList);
 			setListAdapter(adapter);
 			break;
 		}

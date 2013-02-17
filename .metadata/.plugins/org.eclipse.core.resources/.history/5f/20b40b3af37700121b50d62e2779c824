@@ -1,0 +1,26 @@
+<resources>
+
+    <string name="app_name">Arsenal Indonesia</string>
+    <string name="reg_pg_title_lbl">Based on Regional</string>
+    <string name="saved_pg_title_lbl">My AIS Event List</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="search_hint">Search event</string>
+    <string name="title_activity_main">Arsenal Indonesia</string>
+    <string name="title_activity_featured">Featured</string>
+    <string name="title_activity_ticket">Ticket</string>
+    <string name="title_activity_myticket">My Ticket</string>
+    <string name="please_wait">Please Wait</string>
+    <string name="regional_lbl">Regional :</string>
+    <string name="date_lbl">Date :</string>
+    <string name="description_lbl">Description :</string>
+    <string name="ticket">Ticket</string>
+	<string name="contact">Contact</string>
+	<string name="category">Category</string>
+	<string name="author">Author</string>
+    <string name="detail_event_add_menu_title">Add to My Event</string>
+    <string name="detail_event_rmv_menu_title">Remove from My Event</string>
+    <string name="search_event_title">Search Event</string>
+    <string name="no_saved_event">No event saved</string>
+    
+</resources>

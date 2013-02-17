@@ -54,22 +54,21 @@ public class MainActivity extends TabActivity {
 				.setContent(intent);
 		tabHost.addTab(spec);
 
-		// Create an Intent to launch an Activity for "Ticket" tab
-		// *akan dihapus dan diganti dengan tab kategorisasi
-		intent = new Intent().setClass(this, CategoryActivity.class);
-
-		// Initialize a TabSpec for "Categorized" tab and add it to the TabHost
-		spec = tabHost.newTabSpec("Categorized")
-				.setIndicator("", res.getDrawable(R.drawable.tab_category))
-				.setContent(intent);
-		tabHost.addTab(spec);
-
 		// Create an Intent to launch an Activity for "MyTicket" tab
 		intent = new Intent().setClass(this, SavedEventActivity.class);
 
 		// Initialize a TabSpec for "MyTicket" tab and add it to the TabHost
 		spec = tabHost.newTabSpec("MyTicket")
 				.setIndicator("", res.getDrawable(R.drawable.tab_myticket))
+				.setContent(intent);
+		tabHost.addTab(spec);
+
+		// Create an Intent to launch an Activity for "Category" tab
+		intent = new Intent().setClass(this, CategoryActivity.class);
+
+		// Initialize a TabSpec for "Categorized" tab and add it to the TabHost
+		spec = tabHost.newTabSpec("Categorized")
+				.setIndicator("", res.getDrawable(R.drawable.tab_category))
 				.setContent(intent);
 		tabHost.addTab(spec);
 
@@ -81,7 +80,7 @@ public class MainActivity extends TabActivity {
 				.setIndicator("", res.getDrawable(R.drawable.tab_twitter))
 				.setContent(intent);
 		tabHost.addTab(spec);
-		
+
 		// set default selected tab to "Featured Tab"
 		tabHost.setCurrentTab(0);
 	}

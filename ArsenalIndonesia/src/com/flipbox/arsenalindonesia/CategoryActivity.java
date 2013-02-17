@@ -38,7 +38,7 @@ public class CategoryActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.multiview);
+		setContentView(R.layout.multiview_regional);
 		noDataTv = (TextView) findViewById(R.id.no_data_textview);
 		
 		SwitchLayout1();

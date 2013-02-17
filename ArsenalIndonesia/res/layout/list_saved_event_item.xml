@@ -1,27 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_centerHorizontal="true"
-    android:orientation="vertical"
-    android:padding="7dp" >
-   
+    android:layout_height="wrap_content" >
+
+    <!-- event name -->
+
     <TextView
         android:id="@+id/saved_event_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="2dp"
+        android:padding="10dip"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="20dp"
         android:textStyle="bold" />
 
+    <!-- Event regional -->
+
     <TextView
-        android:id="@+id/saved_event_startdate"
-        android:layout_width="fill_parent"
+        android:id="@+id/saved_event_reg_label"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:textColor="@drawable/grey"
-        android:textSize="13dp"
+        android:layout_alignLeft="@id/saved_event_name"
+        android:layout_below="@id/saved_event_name"
+        android:paddingBottom="10dip"
+        android:paddingLeft="10dip"
+        android:text="@string/regional_lbl"
         android:textStyle="bold" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/saved_event_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/saved_event_name"
+        android:layout_toRightOf="@id/saved_event_reg_label" />
+
+    <!-- Event date -->
+
+    <TextView
+        android:id="@+id/saved_event_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/saved_event_name"
+        android:layout_below="@id/saved_event_name"
+        android:paddingBottom="10dip"
+        android:paddingRight="10dip" />
+
+    <TextView
+        android:id="@+id/saved_event_date_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/saved_event_name"
+        android:layout_toLeftOf="@id/saved_event_date"
+        android:text="@string/date_lbl"
+        android:textColor="@drawable/red"
+        android:textStyle="bold" />
+
+</RelativeLayout>

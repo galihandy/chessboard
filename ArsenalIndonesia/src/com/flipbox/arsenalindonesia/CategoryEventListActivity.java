@@ -168,7 +168,7 @@ public class CategoryEventListActivity extends Activity {
 				String[] from = new String[] { Database.EVENT_NAME,
 						Database.EVENT_START_DATE, "image" };
 
-				int[] to = new int[] { R.id.event_name, R.id.event_startdate,
+				int[] to = new int[] { R.id.event_name, R.id.event_date,
 						R.id.event_image };
 
 				ListAdapter adapter = new CustomAdapter(getBaseContext(),

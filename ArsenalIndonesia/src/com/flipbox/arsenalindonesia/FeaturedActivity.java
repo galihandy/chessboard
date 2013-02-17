@@ -149,10 +149,10 @@ public class FeaturedActivity extends Activity {
 				}
 
 				String[] from = new String[] { Database.EVENT_NAME,
-						Database.EVENT_START_DATE, "image" };
+						Database.EVENT_START_DATE, Database.EVENT_LOC, "image" };
 
-				int[] to = new int[] { R.id.event_name, R.id.event_startdate,
-						R.id.event_image };
+				int[] to = new int[] { R.id.event_name, R.id.event_date,
+						R.id.event_regional, R.id.event_image };
 
 				ListAdapter adapter = new CustomAdapter(getBaseContext(),
 						mylist, R.layout.list_feature_item, from, to);
