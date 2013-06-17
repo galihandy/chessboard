@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sampleLayoutExample"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/loadingRelLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="5dp" >
+
+        <!-- Your Content view here -->
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp" />
+
+        <TextView
+            android:id="@+id/waitting_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progress_bar"
+            android:layout_centerHorizontal="true"
+            android:text="@string/please_wait" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/listRelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <!-- Your Content view here -->
+
+        <TextView
+            android:id="@+id/list_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:textStyle="bold" />
+
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/event_listview"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/list_title_tv"
+            android:footerDividersEnabled="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/noDataRelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/no_event_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_no_event" />
+
+        <TextView
+            android:id="@+id/no_data_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/no_event_img"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:textColor="@drawable/no_data_text_clr"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/retry_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/no_data_textview"
+            android:layout_centerInParent="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/retry_connection" />
+    </RelativeLayout>
+
+</RelativeLayout>

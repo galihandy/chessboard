@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="menu_list">
+        <item name="home">Home</item>
+        <item name="by_location">By Location</item>
+        <item name="by_categories">By Categories</item>
+        <item name="my_event">My Events</item>
+        <item name="event_archive">Event Archives</item>
+        <item name="twitter">On Twitter</item>
+    </string-array>
+    
+</resources>

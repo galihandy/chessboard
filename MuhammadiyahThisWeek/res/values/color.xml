@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <drawable name="row_list_feature_item_bgcolor">#777777</drawable>
+
+    <!-- specify organization name text color -->
+    <drawable name="header_org_name_clr">#ffffff</drawable>
+
+    <!-- specify event label (this week or all events) text color -->
+    <drawable name="list_event_label_text_clr">#000000</drawable>
+
+    <!-- specify event label (this week or all events) text bg color -->
+    <drawable name="list_event_label_text_bg_clr">#ffcc33</drawable>
+
+    <!-- specify this week text color on header -->
+    <drawable name="this_week_header_text_clr">#ffcc33</drawable>
+
+    <!-- specify no event text clr on list when there is no any events -->
+    <drawable name="list_no_event_text_clr">#000000</drawable>
+
+    <!-- specify text color when no data -->
+    <drawable name="no_data_text_clr">#878787</drawable>
+
+    <!-- sepcify date label text clr on both, list event item and detail event -->
+    <drawable name="date_label_text_clr">#be1622</drawable>
+
+    <!-- specify header bg gradient start color -->
+    <drawable name="header_bg_str_clr">#000c3e</drawable>
+
+    <!-- specify header bg gradient end color -->
+    <drawable name="header_bg_end_clr">#000f4c</drawable>
+
+    <!-- specify button bg for button_bg selector color when not selected -->
+    <drawable name="button_bg_def">#575756</drawable>
+    <!-- specify button bg for button_bg selector color when selected -->
+    <drawable name="button_bg_sel">#1e1e1e</drawable>
+
+    <!-- specify twitter default bg blue color -->
+    <drawable name="blue_twitter">#159deb</drawable>
+    <!-- specify follow us click text color -->
+    <drawable name="dark_blue_twitter">#0e6fa6</drawable>
+
+</resources>
