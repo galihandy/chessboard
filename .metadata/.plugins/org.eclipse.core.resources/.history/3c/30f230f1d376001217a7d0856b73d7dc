@@ -1,7 +1,0 @@
-package com.flipbox.myevent;
-
-import android.app.Activity;
-
-public class SplashscreenActivity extends Activity {
-
-}

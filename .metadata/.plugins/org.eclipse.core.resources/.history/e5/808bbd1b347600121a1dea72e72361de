@@ -1,7 +1,0 @@
-package com.flipbox.arsenalthisweek;
-
-import android.app.Activity;
-
-public class MainActivity extends Activity{
-
-}
