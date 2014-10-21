@@ -92,6 +92,9 @@ public class Pawn {
 		case "B":
 			res = R.drawable.b;
 			break;
+		case "R":
+			res = R.drawable.r;
+			break;
 		
 		case "k":
 			res = R.drawable.bk;
@@ -107,6 +110,9 @@ public class Pawn {
 		
 		case "b":
 			res = R.drawable.bb;
+			break;
+		case "r":
+			res = R.drawable.br;
 			break;
 		}
 		

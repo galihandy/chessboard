@@ -26,10 +26,12 @@ public class ChessFragment extends Fragment {
 	private ImageView ivWQueen;
 	private ImageView ivWBishop;
 	private ImageView ivWKnight;
+	private ImageView ivWRook;
 	private ImageView ivBKing;
 	private ImageView ivBQueen;
 	private ImageView ivBBishop;
 	private ImageView ivBKnight;
+	private ImageView ivBRook;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -93,6 +95,9 @@ public class ChessFragment extends Fragment {
 		case "B":
 			ivWBishop = putPawn(ivWBishop, p.getImageResouce(), p.getRow(), p.getCol());
 			break;
+		case "R":
+			ivWRook = putPawn(ivWRook, p.getImageResouce(), p.getRow(), p.getCol());
+			break;
 
 		case "k":
 			ivBKing = putPawn(ivBKing, p.getImageResouce(), p.getRow(), p.getCol());
@@ -109,6 +114,10 @@ public class ChessFragment extends Fragment {
 		case "b":
 			ivBBishop = putPawn(ivBBishop, p.getImageResouce(), p.getRow(), p.getCol());
 			break;
+		
+		case "r":
+			ivBRook = putPawn(ivBRook, p.getImageResouce(), p.getRow(), p.getCol());
+			break;
 		}
 
 	};
@@ -116,8 +125,8 @@ public class ChessFragment extends Fragment {
 	private ImageView putPawn(ImageView iv, int imgSrc, int row, int col){
 		ImageView tempIv = null;
 		RelativeLayout.LayoutParams params = null;
-		int mgTop = dpToPx(35*(row-1) + 8);
-		int mgLeft = dpToPx(35*(col-1) + 8);
+		int mgTop = dpToPx(43*(8 - row));
+		int mgLeft = dpToPx(41*(col-1));
 		int width = dpToPx(35);
 		int height = dpToPx(35);
 		
